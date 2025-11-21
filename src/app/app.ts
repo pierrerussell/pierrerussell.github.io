@@ -1,7 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet ,Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-
+declare var gtag: Function;
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
