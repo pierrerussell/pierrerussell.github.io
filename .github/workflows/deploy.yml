@@ -1,3 +1,4 @@
+
 name: Deploy Angular to GitHub Pages
 
 on:
@@ -31,18 +32,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
           # Switch to main branch
           git fetch origin main
           git checkout main
           git reset --hard HEAD
-
           # Delete old files
           git rm -rf .
-
           # Copy new build files
-          cp -a dist/MyProjects/* .
-
+          cp -a dist/*/. .
           # Commit and push
           git add .
           git commit -m "Deploy Angular build [skip ci]" || echo "No changes to commit"
