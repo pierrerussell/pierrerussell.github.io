@@ -10,27 +10,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout development branch
+      # 1️⃣ Checkout development branch
       - name: Checkout development branch
         uses: actions/checkout@v3
         with:
           ref: development
           token: ${{ secrets.GH_PAT }}
 
-      # Setup Node.js
+      # 2️⃣ Setup Node.js
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      # Install dependencies & build Angular
+      # 3️⃣ Install dependencies
       - name: Install dependencies
         run: npm ci
 
+      # 4️⃣ Build Angular project
       - name: Build Angular project
         run: npm run build -- --configuration production --base-href "/"
 
-      # Deploy build to main branch
+      # 5️⃣ Copy build to temporary folder
+      - name: Copy build to temp folder
+        run: |
+          PROJECT_NAME="MyProjects" # Change to your Angular project name
+          mkdir -p ../build_temp
+          cp -a "dist/$PROJECT_NAME/." ../build_temp/
+
+      # 6️⃣ Deploy build to main branch
       - name: Deploy build to main
         run: |
           set -e
@@ -38,21 +46,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          # Get the Angular project name from angular.json
-          PROJECT_NAME="MyProjects"
-          
-          echo "Project name: $PROJECT_NAME"
+          # Fetch or create main branch
+          git fetch origin main || true
+          git checkout main || git checkout --orphan main
 
-          # Fetch main branch or create it if it doesn't exist
-          git fetch origin main
-          git checkout main
-          git reset --hard HEAD
-
-          # Remove all old files in main
+          # Remove all old files
           git rm -rf . || true
 
-          # Copy the contents of the Angular build folder to the root
-          cp -a dist/*/. .
+          # Copy files from temp folder into main root
+          cp -a ../build_temp/. .
 
           # Commit and push
           git add .
