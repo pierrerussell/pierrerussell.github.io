@@ -39,8 +39,8 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # Get the Angular project name from angular.json
-          PROJECT_NAME=$(node -p "require('./angular.json').defaultProject")
-
+          PROJECT_NAME="MyProjects"
+          
           echo "Project name: $PROJECT_NAME"
 
           # Fetch main branch or create it if it doesn't exist
