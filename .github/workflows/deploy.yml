@@ -36,7 +36,7 @@ jobs:
         run: |
           PROJECT_NAME="MyProjects" # Change to your Angular project name
           mkdir -p ../build_temp
-          cp -a "dist/$PROJECT_NAME/." ../build_temp/
+          cp -a "dist/$PROJECT_NAME/browser/." ../build_temp/
 
       # 6️⃣ Deploy build to main branch
       - name: Deploy build to main
