@@ -44,14 +44,15 @@ jobs:
           echo "Project name: $PROJECT_NAME"
 
           # Fetch main branch or create it if it doesn't exist
-          git fetch origin main || true
-          git checkout main || git checkout --orphan main
+          git fetch origin main
+          git checkout main
+          git reset --hard HEAD
 
           # Remove all old files in main
           git rm -rf . || true
 
           # Copy the contents of the Angular build folder to the root
-          cp -a "dist/$PROJECT_NAME/." .
+          cp -a dist/*/. .
 
           # Commit and push
           git add .
