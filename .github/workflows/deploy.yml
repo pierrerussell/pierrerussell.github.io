@@ -41,7 +41,7 @@ jobs:
           git rm -rf .
 
           # Copy new build files
-          cp -a dist/MyProjects/browser/. .
+          cp -a dist/MyProjects/* .
 
           # Commit and push
           git add .
