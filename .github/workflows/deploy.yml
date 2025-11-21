@@ -1,4 +1,3 @@
-
 name: Deploy Angular to GitHub Pages
 
 on:
@@ -11,35 +10,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Checkout development branch
       - name: Checkout development branch
         uses: actions/checkout@v3
         with:
           ref: development
           token: ${{ secrets.GH_PAT }}
 
+      # Setup Node.js
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: '20'
 
+      # Install dependencies & build Angular
       - name: Install dependencies
         run: npm ci
 
       - name: Build Angular project
         run: npm run build -- --configuration production --base-href "/"
 
+      # Deploy build to main branch
       - name: Deploy build to main
         run: |
+          set -e
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # Switch to main branch
-          git fetch origin main
-          git checkout main
-          git reset --hard HEAD
-          # Delete old files
-          git rm -rf .
-          # Copy new build files
-          cp -a dist/*/. .
+
+          # Get the Angular project name from angular.json
+          PROJECT_NAME=$(node -p "require('./angular.json').defaultProject")
+
+          echo "Project name: $PROJECT_NAME"
+
+          # Fetch main branch or create it if it doesn't exist
+          git fetch origin main || true
+          git checkout main || git checkout --orphan main
+
+          # Remove all old files in main
+          git rm -rf . || true
+
+          # Copy the contents of the Angular build folder to the root
+          cp -a "dist/$PROJECT_NAME/." .
+
           # Commit and push
           git add .
           git commit -m "Deploy Angular build [skip ci]" || echo "No changes to commit"
