@@ -13,12 +13,20 @@ export class CodeBlockComponent implements OnInit, OnDestroy {
   currentValue = '';
 
   private properties = [
-    { name: 'Passion', value: '"development"' },
-    { name: 'Creativity', value: '"unlimited"' },
-    { name: 'Experience', value: '"growing"' }
+    { name: 'Stack', value: '".NET"' },
+    { name: 'Frontend', value: '"Angular"' },
+    { name: 'Backend', value: '"C#"' },
+    { name: 'Cloud', value: '"Azure"' },
+    { name: 'Code', value: '"clean"' },
+    { name: 'Design', value: '"responsive"' },
+    { name: 'Solution', value: '"scalable"' },
+    { name: 'Tests', value: '"automated"' },
+    { name: 'CI/CD', value: '"automated"' },
+    { name: 'Data', value: '"SQL"' },
   ];
 
   private currentIndex = 0;
+  private usedIndices: number[] = [];
   private timeouts: any[] = [];
 
   constructor(private cdr: ChangeDetectorRef) {}
@@ -32,10 +40,29 @@ export class CodeBlockComponent implements OnInit, OnDestroy {
     this.timeouts.forEach(timeout => clearTimeout(timeout));
   }
 
+  private getNextIndex(): number {
+    // If we've used all indices, reset the used list
+    if (this.usedIndices.length === this.properties.length) {
+      this.usedIndices = [];
+    }
+
+    // Get available indices
+    const availableIndices = this.properties
+      .map((_, index) => index)
+      .filter(index => !this.usedIndices.includes(index));
+
+    // Pick a random index from available ones
+    const randomIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+    this.usedIndices.push(randomIndex);
+
+    return randomIndex;
+  }
+
   private runAnimation() {
     let delay = 0;
 
     const animateCycle = () => {
+      this.currentIndex = this.getNextIndex();
       const property = this.properties[this.currentIndex];
 
       // Reset all values
@@ -104,7 +131,6 @@ export class CodeBlockComponent implements OnInit, OnDestroy {
 
       // Move to next and repeat
       const timeout3 = setTimeout(() => {
-        this.currentIndex = (this.currentIndex + 1) % this.properties.length;
         this.runAnimation();
       }, delay + 300);
       this.timeouts.push(timeout3);

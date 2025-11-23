@@ -16,6 +16,8 @@ export class TechnologyStackComponent {
   @Input() limit: number = 6;
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   
+  constructor(private sanitizer: DomSanitizer) {}
+  
   get displayTechnologies() {
     return this.technologies.slice(0, this.limit);
   }
@@ -26,5 +28,13 @@ export class TechnologyStackComponent {
   
   getTechData(tech: TechnologyName) {
     return TechnologiesData.getTechnology(tech);
+  }
+  
+  getSanitizedLogo(tech: TechnologyName): SafeHtml | null {
+    const techData = this.getTechData(tech);
+    if (techData?.logo) {
+      return this.sanitizer.bypassSecurityTrustHtml(techData.logo);
+    }
+    return null;
   }
 }

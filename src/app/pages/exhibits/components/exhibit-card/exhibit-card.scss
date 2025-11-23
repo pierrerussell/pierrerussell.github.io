@@ -17,6 +17,11 @@
       background: $gold-frame;
       border-color: $gold-frame;
     }
+    
+    .chart-icon {
+      opacity: 0.7;
+      color: $gold-frame;
+    }
   }
   
   &.in-progress:hover {
@@ -84,6 +89,14 @@
     opacity: 0.3;
     text-transform: uppercase;
     letter-spacing: 2px;
+  }
+  
+  .chart-icon {
+    width: 120px;
+    height: 80px;
+    color: $gallery-gray;
+    opacity: 0.5;
+    transition: all 0.3s ease;
   }
 }
 

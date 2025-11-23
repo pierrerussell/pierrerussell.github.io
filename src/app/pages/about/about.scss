@@ -95,3 +95,44 @@
     }
   }
 }
+
+.construction-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+}
+
+.construction-graphic {
+  text-align: center;
+  
+  .construction-icon {
+    width: 150px;
+    height: 150px;
+    margin-bottom: $space-xl;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  
+  .construction-text {
+    h2 {
+      @include h2;
+      color: $text-secondary;
+      margin-bottom: $space-md;
+    }
+    
+    p {
+      @include body-text('large');
+      color: $text-light;
+      font-style: italic;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}

@@ -1,8 +1,9 @@
 <div class="tech-stack" [class]="'tech-stack-' + size">
-  <div class="tech-item" *ngFor="let tech of displayTechnologies" [title]="getTechData(tech)?.displayName">
+  <div class="tech-item" *ngFor="let tech of displayTechnologies">
+    <div class="tech-tooltip">{{ getTechData(tech)?.displayName }}</div>
     <div class="tech-icon">
       <div *ngIf="getTechData(tech)?.logo" 
-           [innerHTML]="getTechData(tech)!.logo"
+           [innerHTML]="getSanitizedLogo(tech)"
            class="tech-logo-wrapper">
       </div>
       <span *ngIf="!getTechData(tech)?.logo" class="tech-initial">

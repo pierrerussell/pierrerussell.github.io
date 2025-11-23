@@ -29,6 +29,7 @@ export enum TechnologyName {
   CSharp = 'C#',
   FSharp = 'F#',
   DotNet = '.NET',
+  ASPNet = 'ASP.NET Core',
   Java = 'Java',
 
   // Databases
