@@ -12,24 +12,12 @@ export class ProjectsData {
       category: ProjectCategory.FullStack,
       featured: false,
       status: ProjectStatus.InProgress,
-      githubUrl: 'https://github.com/yourusername/stock-simulator',
+      githubUrl: 'https://github.com/pierrerussell/StockSimulation',
       highlights: [
-        '2+ years of historical day-end price data',
-        'Multiple quantitative strategy simulations',
-        'Risk analysis and payoff calculations',
-        'Interactive charting with technical indicators',
-        'Real-time strategy backtesting'
       ],
       challenges: [
-        'Processing large volumes of historical market data efficiently',
-        'Implementing accurate quantitative models for strategy simulation',
-        'Creating intuitive visualizations for complex financial metrics',
-        'Ensuring real-time performance for backtesting calculations'
       ],
       outcomes: [
-        'Comprehensive risk/reward analysis tools',
-        'Support for multiple trading strategies',
-        'Educational platform for quantitative finance'
       ]
     }
   ];
