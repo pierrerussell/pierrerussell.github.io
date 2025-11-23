@@ -6,10 +6,10 @@ declare let gtag: Function;
   providedIn: 'root'
 })
 export class GoogleAnalyticsService {
-  
+
   constructor() { }
 
-  public event(eventAction: string, eventCategory: string, eventLabel?: string, value?: number) {
+  public event(eventAction: string, eventCategory: string, eventLabel?: string | number, value?: number) {
     gtag('event', eventAction, {
       event_category: eventCategory,
       event_label: eventLabel,

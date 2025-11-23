@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Project } from '../../../core/models/project.model';
 import { TechnologyStackComponent } from '../technology-stack/technology-stack';
+import { AnalyticsService } from '../../../core/services/analytics.service';
 
 @Component({
   selector: 'app-project-preview',
@@ -13,4 +14,11 @@ import { TechnologyStackComponent } from '../technology-stack/technology-stack';
 export class ProjectPreviewComponent {
   @Input() project!: Project;
   @Input() featured: boolean = false;
+
+  constructor(private analytics: AnalyticsService) {}
+
+  trackProjectClick() {
+    this.analytics.trackClick(`project_preview_${this.project.id}`, 'home_featured');
+    this.analytics.trackView('project', this.project.id);
+  }
 }
