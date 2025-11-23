@@ -1,0 +1,42 @@
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <span class="hero-subtitle">Digital Gallery</span>
+      <h1 class="hero-title">Where Code<br>Meets Art</h1>
+      <p class="hero-description">A curated exhibition of innovative digital experiences,<br>crafted with precision and creative vision.</p>
+      <div class="hero-actions">
+        <a routerLink="/exhibits" class="btn-primary">View Collection</a>
+        <a routerLink="/about" class="btn-secondary">Meet the Artist</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <app-code-block></app-code-block>
+    </div>
+  </div>
+</section>
+
+@if (featuredProjects.length > 0 ){
+
+
+<section class="featured-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Featured Exhibits</span>
+      <h2>Selected Works</h2>
+      <p class="section-description">Explore a preview of my most impactful digital creations</p>
+    </div>
+    <div class="featured-grid">
+      <app-project-preview
+        *ngFor="let project of featuredProjects"
+        [project]="project"
+        [featured]="false">
+      </app-project-preview>
+    </div>
+    <div class="section-footer">
+      <a routerLink="/exhibits" class="view-all-link">
+        View Full Collection →
+      </a>
+    </div>
+  </div>
+</section>
+}

@@ -1,0 +1,88 @@
+<section class="contact-hero">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Guest Book</span>
+      <h1>Leave Your Mark</h1>
+      <p class="hero-description">Sign the museum guest book and start a conversation</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact-content">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2>Connect with the Artist</h2>
+        <p class="lead">Whether you're interested in collaboration, have questions about my work, or just want to say hello, I'd love to hear from you.</p>
+        
+        <div class="contact-methods">
+          <div class="contact-method">
+            <h3>Quick Links</h3>
+            <div class="social-links">
+              <a href="https://github.com" target="_blank" class="social-link">
+                <span>GitHub</span>
+              </a>
+              <a href="https://linkedin.com" target="_blank" class="social-link">
+                <span>LinkedIn</span>
+              </a>
+              <a href="mailto:hello@example.com" class="social-link">
+                <span>Email</span>
+              </a>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <h3>Museum Hours</h3>
+            <p class="hours">Available for collaborations and consultations<br>Monday - Friday, 9:00 AM - 6:00 PM EST</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="contact-form-wrapper">
+        <form (ngSubmit)="onSubmit()" class="guest-book-form">
+          <h3>Sign the Guest Book</h3>
+          
+          <div class="form-group">
+            <label for="name" class="form-label">Your Name</label>
+            <input 
+              type="text" 
+              id="name"
+              [(ngModel)]="formData.name"
+              name="name"
+              required
+              class="form-input"
+              placeholder="John Doe">
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address</label>
+            <input 
+              type="email" 
+              id="email"
+              [(ngModel)]="formData.email"
+              name="email"
+              required
+              class="form-input"
+              placeholder="john@example.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">Your Message</label>
+            <textarea 
+              id="message"
+              [(ngModel)]="formData.message"
+              name="message"
+              required
+              rows="5"
+              class="form-textarea"
+              placeholder="Share your thoughts, project ideas, or just say hello..."></textarea>
+          </div>
+          
+          <button type="submit" class="submit-btn">
+            Leave Your Message →
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,39 @@
+@use '../../../../shared/styles/variables' as *;
+@use '../../../../shared/styles/mixins' as *;
+
+.exhibits-list {
+  width: 100%;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: $space-2xl;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+    gap: $space-xl;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: $space-3xl 0;
+}
+
+.empty-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: $gallery-gray;
+  border-radius: 50%;
+  margin-bottom: $space-xl;
+  color: $text-light;
+}
+
+.empty-message {
+  @include body-text('large');
+  color: $text-secondary;
+}

@@ -1,0 +1,29 @@
+<article class="project-preview" [class.featured]="featured">
+  <div class="preview-frame">
+    <div class="preview-image">
+      <div class="image-placeholder">
+        <div class="placeholder-content">
+          <span class="placeholder-icon">{{ project.title.charAt(0) }}</span>
+        </div>
+      </div>
+      <div class="preview-overlay">
+        <a routerLink="/exhibits/{{ project.id }}" class="view-project">
+          View Exhibit →
+        </a>
+      </div>
+    </div>
+    
+    <div class="preview-info">
+      <h3 class="preview-title">{{ project.title }}</h3>
+      <p class="preview-description">{{ project.description }}</p>
+      
+      <div class="preview-tech">
+        <app-technology-stack 
+          [technologies]="project.technologies"
+          [limit]="4"
+          size="small">
+        </app-technology-stack>
+      </div>
+    </div>
+  </div>
+</article>

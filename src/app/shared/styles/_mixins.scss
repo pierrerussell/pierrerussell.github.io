@@ -1,3 +1,4 @@
+@use 'sass:color';
 @use './variables' as *;
 
 // Typography Mixins
@@ -75,7 +76,7 @@
   color: white;
 
   &:hover {
-    background: darken($gold-frame, 8%);
+    background: color.adjust($gold-frame, $lightness: -8%);
     transform: translateY(-1px);
     box-shadow: $shadow-sm;
   }

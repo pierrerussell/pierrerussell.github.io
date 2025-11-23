@@ -1,0 +1,109 @@
+@use '../../styles/index' as *;
+
+.tech-stack {
+  display: flex;
+  align-items: center;
+  
+  &-small {
+    .tech-item {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+  
+  &-medium {
+    .tech-item {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+  
+  &-large {
+    .tech-item {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+}
+
+.tech-item {
+  position: relative;
+  background: $museum-white;
+  border: 2px solid $gallery-gray;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  z-index: 1;
+  
+  &:hover {
+    transform: scale(1.1);
+    z-index: 2;
+    border-color: $gold-frame;
+    box-shadow: $shadow-md;
+  }
+  
+  // Stack effect with slight offset
+  &:not(:first-child) {
+    margin-left: -0.5rem;
+  }
+}
+
+.tech-icon {
+  width: 70%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-logo-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  ::ng-deep svg {
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    color: $text-secondary;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+  }
+  
+  .tech-item:hover & ::ng-deep svg {
+    opacity: 1;
+    color: $charcoal;
+  }
+}
+
+.tech-initial {
+  font-size: 1rem;
+  font-weight: bold;
+  color: $text-secondary;
+  text-transform: uppercase;
+}
+
+.tech-more {
+  width: 2rem;
+  height: 2rem;
+  background: rgba($gallery-gray, 0.5);
+  border: 2px dashed $gallery-gray;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -0.5rem;
+  z-index: 0;
+  
+  span {
+    font-size: 0.75rem;
+    color: $text-secondary;
+    font-weight: 600;
+  }
+}

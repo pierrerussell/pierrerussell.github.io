@@ -1,0 +1,97 @@
+@use '../../shared/styles/variables' as *;
+@use '../../shared/styles/mixins' as *;
+
+.about-hero {
+  padding: $space-3xl 0 $space-2xl;
+  background: linear-gradient(135deg, $museum-white 0%, $gallery-gray 100%);
+}
+
+.about-content {
+  padding: $space-3xl 0;
+  background: $gallery-gray;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-3xl;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.artist-info {
+  h2 {
+    @include h2;
+    color: $gold-frame;
+    margin-bottom: $space-md;
+  }
+  
+  .lead {
+    @include body-text('large');
+    color: $text-secondary;
+    margin-bottom: $space-2xl;
+  }
+}
+
+.info-section {
+  margin-bottom: $space-2xl;
+  
+  h3 {
+    @include h3;
+    margin-bottom: $space-md;
+  }
+  
+  p {
+    @include body-text;
+    color: $text-secondary;
+  }
+}
+
+.skills-showcase {
+  background: $museum-white;
+  padding: $space-2xl;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+  
+  h3 {
+    @include h3;
+    margin-bottom: $space-xl;
+  }
+}
+
+.skill-categories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-xl;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skill-category {
+  h4 {
+    font-size: $text-body;
+    font-weight: 600;
+    color: $gold-frame;
+    margin-bottom: $space-md;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+.skill-list {
+  list-style: none;
+  
+  li {
+    padding: $space-sm 0;
+    color: $text-secondary;
+    border-bottom: 1px solid $gallery-gray;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

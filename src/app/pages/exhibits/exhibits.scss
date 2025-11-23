@@ -1,0 +1,39 @@
+@use '../../shared/styles/variables' as *;
+@use '../../shared/styles/mixins' as *;
+
+.exhibits-hero {
+  padding: $space-3xl 0;
+  background: linear-gradient(135deg, $museum-white 0%, $gallery-gray 100%);
+  
+  .hero-description {
+    @include body-text('large');
+    color: $text-secondary;
+    margin-top: $space-md;
+  }
+}
+
+.exhibits-gallery {
+  padding: $space-3xl 0;
+  background: $gallery-gray;
+  min-height: 60vh;
+}
+
+.gallery-controls {
+  margin-bottom: $space-3xl;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: $space-md;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  @include button-secondary;
+  
+  &.active {
+    @include button-primary;
+  }
+}
+

@@ -1,0 +1,7 @@
+<div class="tech-badge" 
+     [class.tech-badge-compact]="compact" 
+     *ngIf="techData">
+  <div class="tech-logo" [innerHTML]="techData.logo" *ngIf="techData.logo"></div>
+  <span class="tech-name" *ngIf="showName">{{ techData.displayName }}</span>
+  <div class="tooltip" *ngIf="!showName">{{ techData.displayName }}</div>
+</div>
