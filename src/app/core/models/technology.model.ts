@@ -48,6 +48,7 @@ export enum TechnologyName {
   Terraform = 'Terraform',
   GitLabCI = 'GitLab CI',
   Jenkins = 'Jenkins',
+  GitHub = 'GitHub',
 
   // AI/ML
   TensorFlow = 'TensorFlow',

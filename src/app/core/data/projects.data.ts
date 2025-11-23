@@ -8,8 +8,8 @@ export class ProjectsData {
       title: 'Market Strategy Simulator',
       description: 'Advanced financial analysis platform with historical data visualization and quantitative strategy simulations.',
       detailedDescription: 'A comprehensive stock market simulator that allows users to search stocks, visualize 2 years of historical price data, and run multiple quantitative trading strategies with detailed risk analysis and potential payoff calculations.',
-      technologies: [TechnologyName.ASPNet, TechnologyName.CSharp, TechnologyName.FSharp, TechnologyName.Azure],
-      category: ProjectCategory.FullStack,
+      technologies: [TechnologyName.Git, TechnologyName.ASPNet, TechnologyName.CSharp, TechnologyName.FSharp, TechnologyName.Azure],
+      category: ProjectCategory.Backend,
       featured: false,
       status: ProjectStatus.InProgress,
       githubUrl: 'https://github.com/pierrerussell/StockSimulation',
@@ -18,6 +18,33 @@ export class ProjectsData {
       challenges: [
       ],
       outcomes: [
+      ]
+    },
+    {
+      id: 2,
+      title: 'Digital Museum Portfolio',
+      description: 'A creative portfolio website showcasing software engineering projects with an immersive museum experience.',
+      detailedDescription: 'An Angular-powered portfolio that reimagines the traditional developer portfolio as an interactive digital museum. Features include typewriter animations, project exhibits, and a unique visual design that helps developers stand out to recruiters.',
+      technologies: [TechnologyName.Git, TechnologyName.Git, TechnologyName.Angular, TechnologyName.TypeScript, TechnologyName.GitHub],
+      category: ProjectCategory.Frontend,
+      featured: false,
+      status: ProjectStatus.InProgress,
+      githubUrl: 'https://github.com/pierrerussell/pierrerussell.github.io',
+      highlights: [
+        'Unique museum-themed design metaphor',
+        'Smooth typewriter animations with random property display',
+        'Technology showcase with interactive logo badges',
+        'Responsive design for all devices'
+      ],
+      challenges: [
+        'Implementing performant typewriter animations',
+        'Creating reusable component architecture',
+        'Designing an elegant technology display system'
+      ],
+      outcomes: [
+        'Stand-out portfolio for recruiter engagement',
+        'Clean, maintainable Angular codebase',
+        'Creative approach to developer branding'
       ]
     }
   ];
@@ -44,7 +71,4 @@ export class ProjectsData {
     const categories = new Set(this.projects.map(p => p.category));
     return Array.from(categories);
   }
-
-  // Add more projects here as you complete them
-  // Just add new objects to the projects array above
 }
