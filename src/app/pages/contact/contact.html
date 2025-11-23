@@ -30,8 +30,10 @@
       <div class="temp-contact">
         <p>In the meantime, connect via:</p>
         <div class="temp-links">
-          <a href="https://github.com/pierrerussell" target="_blank" class="temp-link">GitHub</a>
-          <a href="https://www.linkedin.com/in/pierre-ho-7abb861b5" target="_blank" class="temp-link">LinkedIn</a>
+          <a href="https://github.com/pierrerussell" target="_blank" class="temp-link" 
+             (click)="trackExternalLink('github', 'https://github.com/pierrerussell')">GitHub</a>
+          <a href="https://www.linkedin.com/in/pierre-ho-7abb861b5" target="_blank" class="temp-link" 
+             (click)="trackExternalLink('linkedin', 'https://www.linkedin.com/in/pierre-ho-7abb861b5')">LinkedIn</a>
         </div>
       </div>
     </div>
