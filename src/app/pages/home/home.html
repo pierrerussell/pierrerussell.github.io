@@ -5,8 +5,8 @@
       <h1 class="hero-title">Where Code<br>Meets Art</h1>
       <p class="hero-description">Engineering solutions to complex problems through<br>thoughtful architecture and clean code.</p>
       <div class="hero-actions">
-        <a routerLink="/exhibits" class="btn-primary">View Collection</a>
-        <a routerLink="/about" class="btn-secondary">Meet the Artist</a>
+        <a routerLink="/exhibits" class="btn-primary" (click)="trackButtonClick('view_collection')">View Collection</a>
+        <a routerLink="/about" class="btn-secondary" (click)="trackButtonClick('meet_artist')">Meet the Artist</a>
       </div>
     </div>
     <div class="hero-visual">
