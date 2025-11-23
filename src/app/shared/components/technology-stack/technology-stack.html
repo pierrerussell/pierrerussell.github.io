@@ -1,0 +1,18 @@
+<div class="tech-stack" [class]="'tech-stack-' + size">
+  <div class="tech-item" *ngFor="let tech of displayTechnologies">
+    <div class="tech-tooltip">{{ getTechData(tech)?.displayName }}</div>
+    <div class="tech-icon">
+      <div *ngIf="getTechData(tech)?.logo" 
+           [innerHTML]="getSanitizedLogo(tech)"
+           class="tech-logo-wrapper">
+      </div>
+      <span *ngIf="!getTechData(tech)?.logo" class="tech-initial">
+        {{ getTechData(tech)?.displayName?.charAt(0) || '?' }}
+      </span>
+    </div>
+  </div>
+  
+  <div class="tech-more" *ngIf="remainingCount > 0">
+    <span>+{{ remainingCount }}</span>
+  </div>
+</div>

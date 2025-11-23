@@ -7,8 +7,8 @@
 }
 
 body {
-  font-family: vars.$font-sans;
-  background: vars.$color-bg;
-  color: vars.$color-text;
+  font-family: vars.$font-body;
+  background: vars.$gallery-gray;
+  color: vars.$text-primary;
   -webkit-font-smoothing: antialiased;
 }

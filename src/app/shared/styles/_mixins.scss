@@ -1,13 +1,131 @@
+@use 'sass:color';
 @use './variables' as *;
-@mixin card {
-  background: white;
-  border-radius: $radius;
-  box-shadow: $shadow;
-  padding: 1.5rem;
-  transition: transform .25s ease, box-shadow .25s ease;
+
+// Typography Mixins
+@mixin h1 {
+  font-family: $font-display;
+  font-size: $text-h1;
+  line-height: $line-h1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $charcoal;
+}
+
+@mixin h2 {
+  font-family: $font-display;
+  font-size: $text-h2;
+  line-height: $line-h2;
+  font-weight: 700;
+  color: $charcoal;
+}
+
+@mixin h3 {
+  font-family: $font-display;
+  font-size: $text-h3;
+  line-height: $line-h3;
+  font-weight: 600;
+  color: $charcoal;
+}
+
+@mixin body-text($size: 'regular') {
+  font-family: $font-body;
+  @if $size == 'large' {
+    font-size: $text-body-lg;
+    line-height: $line-body-lg;
+  } @else if $size == 'small' {
+    font-size: $text-body-sm;
+    line-height: $line-body-sm;
+  } @else {
+    font-size: $text-body;
+    line-height: $line-body;
+  }
+}
+
+// Museum Card Styles
+@mixin museum-card {
+  background: $museum-white;
+  border: 1px solid $gallery-gray;
+  border-radius: $radius-sm;
+  padding: $space-lg;
+  box-shadow: $shadow-sm;
+  transition: all 0.3s ease;
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 20px rgba(0,0,0,.12);
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+    border-color: darken($gallery-gray, 5%);
   }
+}
+
+// Button Mixins
+@mixin button-base {
+  @include body-text();
+  padding: $space-sm $space-lg;
+  border-radius: $radius-sm;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $gold-frame;
+  color: white;
+
+  &:hover {
+    background: color.adjust($gold-frame, $lightness: -8%);
+    transform: translateY(-1px);
+    box-shadow: $shadow-sm;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background: transparent;
+  color: $charcoal;
+  border: 2px solid $charcoal;
+
+  &:hover {
+    background: $charcoal;
+    color: $museum-white;
+  }
+}
+
+// Responsive Mixins
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+// Layout Mixins
+@mixin container {
+  max-width: $wide;
+  margin: 0 auto;
+  padding: 0 $space-lg;
+
+  @include tablet {
+    padding: 0 $space-md;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

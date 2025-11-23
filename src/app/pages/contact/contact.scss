@@ -1,0 +1,197 @@
+@use '../../shared/styles/variables' as *;
+@use '../../shared/styles/mixins' as *;
+
+.contact-hero {
+  padding: $space-3xl 0;
+  background: linear-gradient(135deg, $museum-white 0%, $gallery-gray 100%);
+  
+  .hero-description {
+    @include body-text('large');
+    color: $text-secondary;
+    margin-top: $space-md;
+  }
+}
+
+.contact-content {
+  padding: $space-3xl 0;
+  background: $gallery-gray;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-3xl;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info {
+  h2 {
+    @include h2;
+    margin-bottom: $space-md;
+  }
+  
+  .lead {
+    @include body-text('large');
+    color: $text-secondary;
+    margin-bottom: $space-2xl;
+  }
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2xl;
+}
+
+.contact-method {
+  h3 {
+    @include h3;
+    font-size: $text-body-lg;
+    margin-bottom: $space-md;
+  }
+  
+  .hours {
+    @include body-text;
+    color: $text-secondary;
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: $space-md;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  @include button-secondary;
+  padding: $space-sm $space-md;
+  
+  &:hover {
+    @include button-primary;
+  }
+}
+
+.contact-form-wrapper {
+  background: $museum-white;
+  padding: $space-2xl;
+  border-radius: $radius-md;
+  box-shadow: $shadow-md;
+}
+
+.guest-book-form {
+  h3 {
+    @include h3;
+    margin-bottom: $space-xl;
+  }
+}
+
+.form-group {
+  margin-bottom: $space-xl;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: $space-sm;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: $space-md;
+  border: 2px solid $gallery-gray;
+  border-radius: $radius-sm;
+  font-family: $font-body;
+  font-size: $text-body;
+  transition: border-color 0.2s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: $gold-frame;
+  }
+  
+  &::placeholder {
+    color: $text-light;
+  }
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  @include button-primary;
+  width: 100%;
+  font-size: $text-body-lg;
+}
+
+.coming-soon {
+  background: $gallery-gray;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.coming-soon-wrapper {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: $space-3xl 0;
+  
+  .guest-book-icon {
+    width: 180px;
+    height: 180px;
+    margin-bottom: $space-2xl;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  h2 {
+    @include h2;
+    color: $text-primary;
+    margin-bottom: $space-md;
+  }
+  
+  p {
+    @include body-text('large');
+    color: $text-secondary;
+    margin-bottom: $space-sm;
+  }
+  
+  .temp-contact {
+    margin-top: $space-3xl;
+    padding-top: $space-2xl;
+    border-top: 1px solid rgba($charcoal, 0.1);
+    
+    p {
+      @include body-text;
+      color: $text-light;
+      margin-bottom: $space-md;
+    }
+  }
+  
+  .temp-links {
+    display: flex;
+    gap: $space-lg;
+    justify-content: center;
+    
+    .temp-link {
+      @include button-secondary;
+      text-decoration: none;
+      font-size: $text-body;
+    }
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

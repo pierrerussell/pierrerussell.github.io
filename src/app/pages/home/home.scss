@@ -1,0 +1,168 @@
+@use '../../shared/styles/variables' as *;
+@use '../../shared/styles/mixins' as *;
+
+// Hero Section
+.hero {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, $museum-white 0%, $gallery-gray 100%);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 60%;
+    height: 150%;
+    background: radial-gradient(circle, rgba($gold-frame, 0.05) 0%, transparent 70%);
+    animation: float 20s ease-in-out infinite;
+  }
+}
+
+.hero-content {
+  @include container;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-3xl;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.hero-subtitle {
+  display: inline-block;
+  color: $gold-frame;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: $text-body-sm;
+  font-weight: 600;
+  margin-bottom: $space-md;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.hero-title {
+  @include h1;
+  font-size: clamp(40px, 5vw, 64px);
+  line-height: 1.1;
+  margin-bottom: $space-lg;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.hero-description {
+  @include body-text('large');
+  color: $text-secondary;
+  margin-bottom: $space-2xl;
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+  
+  @include tablet {
+    br { display: none; }
+  }
+}
+
+.hero-actions {
+  display: flex;
+  gap: $space-md;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+  
+  @include tablet {
+    justify-content: center;
+  }
+}
+
+.hero-visual {
+  animation: fadeIn 1s ease-out 0.4s both;
+  
+  @include tablet {
+    display: none;
+  }
+}
+
+
+// Featured Section
+.featured-section {
+  padding: $space-3xl 0;
+  background: $gallery-gray;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $space-3xl;
+  
+  h2 {
+    @include h2;
+    margin: 0;
+    margin-bottom: $space-sm;
+  }
+  
+  .section-description {
+    @include body-text('large');
+    color: $text-secondary;
+  }
+}
+
+.section-label {
+  display: inline-block;
+  color: $gold-frame;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: $text-caption;
+  font-weight: 600;
+  margin-bottom: $space-sm;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-2xl;
+  margin-bottom: $space-3xl;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.section-footer {
+  text-align: center;
+}
+
+.view-all-link {
+  @include button-secondary;
+  display: inline-block;
+  font-size: $text-body-lg;
+  text-decoration: none;
+  
+  &:hover {
+    @include button-primary;
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-20px, -20px) scale(1.05); }
+}

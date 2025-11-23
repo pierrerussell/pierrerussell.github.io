@@ -1,8 +1,59 @@
-$color-bg: #fafafa;
-$color-text: #1e1e1e;
-$color-accent: #3b82f6;
+// Museum Color Palette
+$museum-white: #FAFAFA;
+$gallery-gray: #F5F5F5;
+$charcoal: #1A1A1A;
+$gold-frame: #D4AF37;
+$deep-navy: #2C3E50;
 
-$radius: 12px;
-$shadow: 0 4px 12px rgba(0, 0, 0, .08);
+// Text Colors
+$text-primary: #333333;
+$text-secondary: #666666;
+$text-light: #999999;
 
-$font-sans: 'Inter', sans-serif;
+// Status Colors
+$success: #4CAF50;
+$error: #F44336;
+
+// Spacing System (8px grid)
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+$space-2xl: 48px;
+$space-3xl: 64px;
+
+// Typography
+$font-display: 'Playfair Display', Georgia, serif;
+$font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+// Font Sizes
+$text-h1: 48px;
+$text-h2: 36px;
+$text-h3: 28px;
+$text-body-lg: 18px;
+$text-body: 16px;
+$text-body-sm: 14px;
+$text-caption: 12px;
+
+// Line Heights
+$line-h1: 56px;
+$line-h2: 44px;
+$line-h3: 36px;
+$line-body-lg: 28px;
+$line-body: 24px;
+$line-body-sm: 20px;
+$line-caption: 16px;
+
+// Components
+$radius-sm: 4px;
+$radius-md: 8px;
+$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$wide: 1440px;

@@ -1,2 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'app/shared/styles/index';
+@use 'app/shared/styles/variables' as *;
+@use 'app/shared/styles/mixins' as *;
+
+// Reset & Base Styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  @include body-text();
+  color: $text-primary;
+  background-color: $gallery-gray;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+p {
+  margin-bottom: $space-md;
+}
+
+a {
+  color: $deep-navy;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $gold-frame;
+  }
+}
+
+// Utility Classes
+.container {
+  @include container;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+.text-light {
+  color: $text-light;
+}
+
+.mt-sm { margin-top: $space-sm; }
+.mt-md { margin-top: $space-md; }
+.mt-lg { margin-top: $space-lg; }
+.mt-xl { margin-top: $space-xl; }
+
+.mb-sm { margin-bottom: $space-sm; }
+.mb-md { margin-bottom: $space-md; }
+.mb-lg { margin-bottom: $space-lg; }
+.mb-xl { margin-bottom: $space-xl; }
+
+.btn-primary {
+  @include button-primary;
+}
+
+.btn-secondary {
+  @include button-secondary;
+}
