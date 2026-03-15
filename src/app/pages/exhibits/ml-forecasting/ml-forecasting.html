@@ -1,0 +1,259 @@
+<div class="exhibit-container">
+  <!-- Exhibit Header -->
+  <header class="exhibit-header">
+    <h1 class="exhibit-title">Financial Forecasting ML API</h1>
+    <p class="exhibit-subtitle">A FastAPI backend for stock price predictions using machine learning models with real-time financial data integration</p>
+
+    <div class="action-buttons">
+      <a href="https://ml-project.azurewebsites.net/docs" target="_blank" class="btn btn-primary">API Docs</a>
+      <a href="https://github.com/pierrerussell/MLProject" target="_blank" class="btn btn-secondary">View Source</a>
+    </div>
+  </header>
+
+  <!-- Architecture Overview -->
+  <section class="demo-section">
+    <h2>How It Works</h2>
+    <div class="architecture-flow">
+      <div class="flow-step">
+        <div class="step-icon">1</div>
+        <h4>Data Ingestion</h4>
+        <p>Fetch historical OHLCV data from FinancialModelingPrep API</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="step-icon">2</div>
+        <h4>Feature Engineering</h4>
+        <p>Generate technical indicators: SMA, RSI, volatility, lag features</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="step-icon">3</div>
+        <h4>Model Training</h4>
+        <p>Train Linear Regression & Random Forest on historical data</p>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-step">
+        <div class="step-icon">4</div>
+        <h4>Predictions</h4>
+        <p>Generate forecasts with evaluation metrics & model comparison</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prediction Demo -->
+  <section class="demo-section">
+    <h2>Price Prediction Demo</h2>
+    <div class="demo-container">
+      <div class="demo-panel left">
+        <h3>Configuration</h3>
+        <div class="config-form">
+          <label>Stock Symbol</label>
+          <select class="form-select" [(ngModel)]="selectedSymbol">
+            <option *ngFor="let symbol of availableSymbols" [value]="symbol">{{ symbol }}</option>
+          </select>
+
+          <label>Prediction Horizon</label>
+          <select class="form-select" [(ngModel)]="predictionHorizon">
+            <option [ngValue]="5">5 days</option>
+            <option [ngValue]="10">10 days</option>
+            <option [ngValue]="15">15 days</option>
+            <option [ngValue]="24">24 days</option>
+          </select>
+
+          <label class="checkbox-label">
+            <input type="checkbox" checked> Include Technical Indicators
+          </label>
+
+          <button
+            class="btn btn-primary generate-btn"
+            (click)="generatePredictions()"
+            [disabled]="isLoading">
+            {{ isLoading ? 'Generating...' : 'Generate Predictions' }}
+          </button>
+
+          <div class="error-message" *ngIf="errorMessage">
+            {{ errorMessage }}
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-panel center chart-panel">
+        <h3>{{ selectedSymbol }} Price Forecast</h3>
+        <div class="chart-container" style="height: 350px;">
+          <canvas baseChart
+                  [type]="'line'"
+                  [data]="predictionChartData.data"
+                  [options]="predictionChartData.options">
+          </canvas>
+        </div>
+        <p class="chart-caption">
+          <span class="legend-item"><span class="legend-color historical"></span> Historical</span>
+          <span class="legend-item"><span class="legend-color lr"></span> Linear Regression</span>
+          <span class="legend-item"><span class="legend-color rf"></span> Random Forest</span>
+        </p>
+      </div>
+
+      <div class="demo-panel right">
+        <h3>Best Model: <span class="best-model">{{ bestModel === 'random_forest' ? 'Random Forest' : 'Linear Regression' }}</span></h3>
+        <p class="model-recommendation">Selected based on lowest RMSE</p>
+
+        <div class="predictions-list">
+          <h4>{{ predictionHorizon }}-Day Forecast</h4>
+          <div class="prediction-row" *ngFor="let pred of (bestModel === 'random_forest' ? randomForest : linearRegression).predictions; let i = index">
+            <span class="pred-date">{{ (bestModel === 'random_forest' ? randomForest : linearRegression).predictionDates[i] }}</span>
+            <span class="pred-value">${{ pred.toFixed(2) }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Model Comparison -->
+  <section class="demo-section">
+    <h2>Model Comparison</h2>
+    <div class="demo-container model-comparison">
+      <div class="model-card">
+        <div class="model-header lr-header">
+          <h3>Linear Regression</h3>
+          <span class="model-badge">Baseline</span>
+        </div>
+        <div class="model-metrics">
+          <div class="metric-item">
+            <span class="metric-label">RMSE</span>
+            <span class="metric-value">{{ linearRegression.metrics.rmse }}</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">MAE</span>
+            <span class="metric-value">{{ linearRegression.metrics.mae }}</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">R² Score</span>
+            <span class="metric-value" [class]="getMetricClass('r2', linearRegression.metrics.r2)">
+              {{ linearRegression.metrics.r2 }}
+            </span>
+          </div>
+        </div>
+        <div class="model-description">
+          <p>Simple, interpretable model that assumes a linear relationship between features and target price.</p>
+          <ul>
+            <li>Fast training and prediction</li>
+            <li>Good baseline performance</li>
+            <li>Assumes linear relationships</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="model-card featured">
+        <div class="model-header rf-header">
+          <h3>Random Forest</h3>
+          <span class="model-badge winner">Best</span>
+        </div>
+        <div class="model-metrics">
+          <div class="metric-item">
+            <span class="metric-label">RMSE</span>
+            <span class="metric-value positive">{{ randomForest.metrics.rmse }}</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">MAE</span>
+            <span class="metric-value positive">{{ randomForest.metrics.mae }}</span>
+          </div>
+          <div class="metric-item">
+            <span class="metric-label">R² Score</span>
+            <span class="metric-value positive">{{ randomForest.metrics.r2 }}</span>
+          </div>
+        </div>
+        <div class="model-description">
+          <p>Ensemble method combining multiple decision trees for robust predictions.</p>
+          <ul>
+            <li>Captures non-linear patterns</li>
+            <li>Feature importance insights</li>
+            <li>Resistant to overfitting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Importance -->
+  <section class="demo-section">
+    <h2>Feature Importance</h2>
+    <div class="demo-container">
+      <div class="feature-panel">
+        <h3>What Drives Predictions?</h3>
+        <p class="feature-description">Random Forest reveals which features have the most predictive power:</p>
+        <div class="feature-bars">
+          <div class="feature-bar-item" *ngFor="let feat of randomForest.featureImportance">
+            <span class="feature-name">{{ feat.feature }}</span>
+            <div class="feature-bar-container">
+              <div class="feature-bar" [style.width.%]="feat.importance * 100"></div>
+              <span class="feature-percentage">{{ (feat.importance * 100).toFixed(0) }}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="technical-indicators-panel">
+        <h3>Technical Indicators Used</h3>
+        <div class="indicators-grid">
+          <div class="indicator-card">
+            <h4>SMA (20-day)</h4>
+            <p>Simple Moving Average smooths price action to identify trends</p>
+          </div>
+          <div class="indicator-card">
+            <h4>RSI</h4>
+            <p>Relative Strength Index measures momentum and overbought/oversold conditions</p>
+          </div>
+          <div class="indicator-card">
+            <h4>Volatility</h4>
+            <p>Rolling standard deviation captures price variability</p>
+          </div>
+          <div class="indicator-card">
+            <h4>Lag Features</h4>
+            <p>Previous close prices (1, 5, 10 days) capture short-term patterns</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- API Endpoints -->
+  <section class="demo-section">
+    <h2>API Endpoints</h2>
+    <div class="api-documentation">
+      <div class="endpoint-card" *ngFor="let endpoint of apiEndpoints">
+        <div class="endpoint-header">
+          <span class="method-badge" [class]="endpoint.method.toLowerCase()">{{ endpoint.method }}</span>
+          <code class="endpoint-path">{{ endpoint.path }}</code>
+        </div>
+        <p class="endpoint-description">{{ endpoint.description }}</p>
+        <div class="endpoint-example">
+          <span class="example-label">Example:</span>
+          <code>{{ endpoint.example }}</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Stack -->
+  <section class="demo-section tech-stack-section">
+    <h2>Technology Stack</h2>
+    <div class="tech-grid">
+      <div class="tech-item">
+        <h4>FastAPI</h4>
+        <p>Modern async Python web framework with automatic OpenAPI docs</p>
+      </div>
+      <div class="tech-item">
+        <h4>Scikit-learn</h4>
+        <p>Machine learning library for model training and evaluation</p>
+      </div>
+      <div class="tech-item">
+        <h4>Pandas</h4>
+        <p>Data manipulation and feature engineering</p>
+      </div>
+      <div class="tech-item">
+        <h4>Azure App Service</h4>
+        <p>Cloud deployment with GitHub Actions CI/CD</p>
+      </div>
+    </div>
+  </section>
+</div>

@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="preview-overlay">
-        <a routerLink="/exhibits/{{ project.id }}" class="view-project" (click)="trackProjectClick()">
+        <a [routerLink]="project.demoUrl || '/exhibits/' + project.id" class="view-project" (click)="trackProjectClick()">
           View Exhibit →
         </a>
       </div>

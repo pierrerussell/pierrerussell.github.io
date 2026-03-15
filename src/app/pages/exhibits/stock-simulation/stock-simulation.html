@@ -1,0 +1,242 @@
+<div class="exhibit-container">
+  <!-- Exhibit Header -->
+  <header class="exhibit-header">
+    <h1 class="exhibit-title">Stock Market Simulation Platform</h1>
+    <p class="exhibit-subtitle">A comprehensive quantitative finance platform demonstrating portfolio optimization, risk analytics, and algorithmic backtesting</p>
+
+    <div class="action-buttons">
+      <a href="#demo" class="btn btn-primary" *ngIf="!showTechnicalDocs">Live Demo</a>
+      <a href="https://github.com/yourusername/stock-simulation" target="_blank" class="btn btn-secondary">View Source</a>
+      <button class="btn btn-secondary" (click)="showTechnicalDocs = !showTechnicalDocs">
+        {{ showTechnicalDocs ? 'Back to Demo' : 'Technical Docs' }}
+      </button>
+    </div>
+  </header>
+
+  <!-- Demo Sections -->
+  <div *ngIf="!showTechnicalDocs" class="demo-content">
+    <section id="demo" class="demo-section">
+    <h2>Portfolio Optimizer</h2>
+    <div class="demo-container">
+      <div class="demo-panel left">
+        <h3>Select Stocks</h3>
+        <p>Add stocks to your portfolio:</p>
+        <div class="stock-selector">
+          <input type="text" placeholder="Search stocks..." class="stock-search">
+          <div class="selected-stocks">
+            <span class="stock-chip" *ngFor="let stock of selectedStocks">{{ stock }}</span>
+          </div>
+        </div>
+
+        <h3 class="constraints-title">Optimization Constraints</h3>
+        <div class="constraints-panel">
+          <label class="constraint-item">
+            <input type="checkbox" checked> No Short Selling
+          </label>
+          <label class="constraint-item">
+            <span>Max Position Size:</span>
+            <select class="constraint-select">
+              <option>20%</option>
+              <option>30%</option>
+              <option>50%</option>
+            </select>
+          </label>
+          <label class="constraint-item">
+            <span>Min Position Size:</span>
+            <select class="constraint-select">
+              <option>5%</option>
+              <option>10%</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="demo-panel center">
+        <h3>Efficient Frontier</h3>
+        <div class="chart-container" style="height: 400px;">
+          <canvas baseChart 
+                  [type]="'scatter'"
+                  [data]="efficientFrontierChartData.data"
+                  [options]="efficientFrontierChartData.options">
+          </canvas>
+        </div>
+        <p class="chart-caption text-center mt-2">
+          <strong>Current Portfolio:</strong> Risk: {{ portfolioOptimization.metrics.portfolioRisk }}% | Return: {{ portfolioOptimization.metrics.expectedReturn }}% | Sharpe: {{ portfolioOptimization.metrics.sharpeRatio }}
+        </p>
+      </div>
+
+      <div class="demo-panel right">
+        <h3>Portfolio Weights</h3>
+        <div class="weights-display">
+          <div class="weight-item" *ngFor="let weight of portfolioOptimization.weights">
+            <span>{{ weight.symbol }}</span>
+            <span>{{ weight.percentage }}%</span>
+          </div>
+        </div>
+        <div class="portfolio-metrics">
+          <div class="metric-row">
+            <span>Expected Return:</span>
+            <span class="metric-value positive">{{ portfolioOptimization.metrics.expectedReturn }}%</span>
+          </div>
+          <div class="metric-row">
+            <span>Portfolio Risk:</span>
+            <span class="metric-value">{{ portfolioOptimization.metrics.portfolioRisk }}%</span>
+          </div>
+          <div class="metric-row">
+            <span>Sharpe Ratio:</span>
+            <span class="metric-value">{{ portfolioOptimization.metrics.sharpeRatio }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Risk Analytics & Strategy Testing</h2>
+    <div class="demo-container analytics-container">
+      <div class="risk-panel">
+        <h3>Value at Risk (VaR)</h3>
+        <div class="var-controls">
+          <label>Method:</label>
+          <select>
+            <option>Historical</option>
+            <option>Parametric</option>
+            <option>Monte Carlo</option>
+          </select>
+          <label>Confidence:</label>
+          <select>
+            <option>95%</option>
+            <option>99%</option>
+          </select>
+        </div>
+        <div class="var-result">
+          <p>1-Day VaR: ${{ varResult.value | number }}</p>
+          <p>"With {{ varResult.confidence }}% confidence, you won't lose more than ${{ varResult.value | number }} in a day"</p>
+        </div>
+
+        <div class="cvar-result">
+          <h4>Conditional VaR (CVaR)</h4>
+          <p>Expected loss beyond VaR: <strong>${{ varResult.cvar | number }}</strong></p>
+          <p class="cvar-explanation">Average loss in the worst {{ 100 - varResult.confidence }}% of scenarios</p>
+        </div>
+      </div>
+
+      <div class="backtest-panel">
+        <h3>Strategy Backtester</h3>
+        <select class="strategy-select">
+          <option>Buy & Hold</option>
+          <option>Moving Average Crossover</option>
+          <option>Mean Reversion</option>
+          <option>Momentum</option>
+        </select>
+
+        <div class="backtest-results">
+          <div class="metric-card">
+            <span class="metric-label">Total Return</span>
+            <span class="metric-value positive">+{{ backtestResult.totalReturn }}%</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Annual Return</span>
+            <span class="metric-value positive">+{{ backtestResult.annualReturn }}%</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Sharpe Ratio</span>
+            <span class="metric-value">{{ backtestResult.sharpeRatio }}</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Max Drawdown</span>
+            <span class="metric-value negative">{{ backtestResult.maxDrawdown }}%</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Win Rate</span>
+            <span class="metric-value">{{ backtestResult.winRate }}%</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Trades</span>
+            <span class="metric-value">{{ backtestResult.totalTrades }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Correlation & Risk Analysis</h2>
+    <div class="demo-container">
+      <div class="correlation-panel">
+        <h3>Correlation Matrix</h3>
+        <div class="correlation-heatmap">
+          <div class="heatmap-placeholder">
+            <p>[Interactive Correlation Heatmap]</p>
+            <div class="correlation-grid">
+              <div class="correlation-row">
+                <span class="stock-label">AAPL</span>
+                <span class="correlation-cell high">1.00</span>
+                <span class="correlation-cell medium">0.65</span>
+                <span class="correlation-cell low">0.42</span>
+              </div>
+              <div class="correlation-row">
+                <span class="stock-label">MSFT</span>
+                <span class="correlation-cell medium">0.65</span>
+                <span class="correlation-cell high">1.00</span>
+                <span class="correlation-cell medium">0.58</span>
+              </div>
+              <div class="correlation-row">
+                <span class="stock-label">GOOGL</span>
+                <span class="correlation-cell low">0.42</span>
+                <span class="correlation-cell medium">0.58</span>
+                <span class="correlation-cell high">1.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="correlation-insights">
+          <h4>Diversification Insights</h4>
+          <ul>
+            <li>AAPL-MSFT: High correlation (0.65) - Both tech giants move together</li>
+            <li>AAPL-GOOGL: Lower correlation (0.42) - Better diversification</li>
+            <li>Rolling 30-day correlation shows increasing correlation during market stress</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-attribution-panel">
+        <h3>Risk Attribution</h3>
+        <div class="risk-breakdown">
+          <h4>Risk Contribution by Stock</h4>
+          <div class="risk-bars">
+            <div class="risk-bar-item" *ngFor="let stock of riskAttribution.stockAttributions">
+              <span class="stock-name">{{ stock.symbol }}</span>
+              <div class="risk-bar-container">
+                <div class="risk-bar" [style.width.%]="stock.riskPercentage"></div>
+                <span class="risk-percentage">{{ stock.riskPercentage }}%</span>
+              </div>
+            </div>
+          </div>
+
+          <h4>Risk by Factor</h4>
+          <div class="factor-risks">
+            <div class="factor-item">
+              <span>Market Risk:</span>
+              <span class="factor-value">{{ riskAttribution.factorAttributions.marketRisk }}%</span>
+            </div>
+            <div class="factor-item">
+              <span>Sector Risk:</span>
+              <span class="factor-value">{{ riskAttribution.factorAttributions.sectorRisk }}%</span>
+            </div>
+            <div class="factor-item">
+              <span>Idiosyncratic:</span>
+              <span class="factor-value">{{ riskAttribution.factorAttributions.idiosyncraticRisk }}%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- Technical Documentation Content -->
+  <ng-container *ngIf="showTechnicalDocs">
+    <div ng-include="'/app/pages/exhibits/stock-simulation/technical-docs.html'"></div>
+  </ng-container>
+</div>

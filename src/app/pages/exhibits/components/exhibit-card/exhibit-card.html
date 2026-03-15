@@ -57,8 +57,8 @@
       </div>
       
       <div class="card-actions">
-        <a 
-          routerLink="/exhibits/{{ project.id }}" 
+        <a
+          [routerLink]="project.demoUrl || '/exhibits/' + project.id"
           class="view-exhibit"
           (click)="trackProjectView()">
           Enter Exhibit →

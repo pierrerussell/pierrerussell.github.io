@@ -1,0 +1,255 @@
+// New sections styling
+.constraints-title {
+  margin-top: $space-xl;
+}
+
+.constraints-panel {
+  background: $gallery-gray;
+  padding: $space-md;
+  border-radius: $radius-sm;
+  
+  .constraint-item {
+    @include body-text('small');
+    display: block;
+    margin-bottom: $space-sm;
+    cursor: pointer;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    input[type="checkbox"] {
+      margin-right: $space-sm;
+    }
+    
+    .constraint-select {
+      @include body-text('small');
+      margin-left: $space-sm;
+      padding: $space-xs;
+      border: 1px solid darken($gallery-gray, 10%);
+      border-radius: $radius-sm;
+      background: $museum-white;
+    }
+  }
+}
+
+.portfolio-metrics {
+  margin-top: $space-lg;
+  padding-top: $space-lg;
+  border-top: 2px solid $gallery-gray;
+  
+  .metric-row {
+    @include body-text();
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $space-sm;
+    
+    .metric-value {
+      font-weight: 600;
+      
+      &.positive {
+        color: $success;
+      }
+      
+      &.negative {
+        color: $error;
+      }
+    }
+  }
+}
+
+.cvar-result {
+  margin-top: $space-lg;
+  padding: $space-md;
+  background: rgba($error, 0.05);
+  border: 2px solid rgba($error, 0.2);
+  border-radius: $radius-sm;
+  
+  h4 {
+    @include body-text();
+    font-weight: 600;
+    margin-bottom: $space-sm;
+    color: darken($error, 10%);
+  }
+  
+  p {
+    @include body-text('small');
+    margin: $space-xs 0;
+    
+    strong {
+      font-weight: 700;
+      color: $error;
+    }
+  }
+  
+  .cvar-explanation {
+    font-style: italic;
+    color: $text-secondary;
+  }
+}
+
+.correlation-panel {
+  @include museum-card;
+  flex: 1.5;
+  
+  h3 {
+    @include h3;
+    font-size: $text-body-lg;
+    margin-bottom: $space-lg;
+    padding-bottom: $space-md;
+    border-bottom: 2px solid $gallery-gray;
+  }
+}
+
+.heatmap-placeholder {
+  background: $gallery-gray;
+  padding: $space-lg;
+  border-radius: $radius-sm;
+  text-align: center;
+  
+  p {
+    @include body-text();
+    color: $text-secondary;
+    margin-bottom: $space-lg;
+  }
+}
+
+.correlation-grid {
+  display: table;
+  margin: 0 auto;
+  
+  .correlation-row {
+    display: table-row;
+    
+    .stock-label {
+      @include body-text('small');
+      font-weight: 600;
+      display: table-cell;
+      padding: $space-sm;
+      text-align: right;
+      min-width: 60px;
+    }
+    
+    .correlation-cell {
+      @include body-text('small');
+      display: table-cell;
+      padding: $space-sm $space-md;
+      text-align: center;
+      border-radius: $radius-sm;
+      margin: 2px;
+      
+      &.high {
+        background: rgba($success, 0.3);
+        color: darken($success, 20%);
+      }
+      
+      &.medium {
+        background: rgba($gold-frame, 0.3);
+        color: darken($gold-frame, 20%);
+      }
+      
+      &.low {
+        background: rgba($deep-navy, 0.1);
+        color: $deep-navy;
+      }
+    }
+  }
+}
+
+.correlation-insights {
+  margin-top: $space-lg;
+  
+  h4 {
+    @include body-text();
+    font-weight: 600;
+    margin-bottom: $space-sm;
+  }
+  
+  ul {
+    @include body-text('small');
+    padding-left: $space-lg;
+    color: $text-secondary;
+    
+    li {
+      margin-bottom: $space-xs;
+    }
+  }
+}
+
+.risk-attribution-panel {
+  @include museum-card;
+  flex: 1;
+  
+  h3 {
+    @include h3;
+    font-size: $text-body-lg;
+    margin-bottom: $space-lg;
+    padding-bottom: $space-md;
+    border-bottom: 2px solid $gallery-gray;
+  }
+  
+  h4 {
+    @include body-text();
+    font-weight: 600;
+    margin-bottom: $space-md;
+    margin-top: $space-lg;
+    
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.risk-bars {
+  .risk-bar-item {
+    margin-bottom: $space-md;
+    
+    .stock-name {
+      @include body-text('small');
+      font-weight: 600;
+      display: block;
+      margin-bottom: $space-xs;
+    }
+    
+    .risk-bar-container {
+      display: flex;
+      align-items: center;
+      gap: $space-sm;
+      
+      .risk-bar {
+        height: 24px;
+        background: linear-gradient(90deg, $gold-frame 0%, darken($gold-frame, 10%) 100%);
+        border-radius: $radius-sm;
+        transition: width 0.3s ease;
+      }
+      
+      .risk-percentage {
+        @include body-text('small');
+        font-weight: 600;
+        color: $text-secondary;
+      }
+    }
+  }
+}
+
+.factor-risks {
+  background: $gallery-gray;
+  padding: $space-md;
+  border-radius: $radius-sm;
+  
+  .factor-item {
+    @include body-text();
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: $space-sm;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    .factor-value {
+      font-weight: 600;
+      color: $charcoal;
+    }
+  }
+}
