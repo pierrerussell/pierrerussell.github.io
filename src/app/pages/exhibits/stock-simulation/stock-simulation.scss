@@ -1,0 +1,415 @@
+@use '../../../shared/styles/variables' as *;
+@use '../../../shared/styles/mixins' as *;
+@import './stock-simulation-modal';
+@import './stock-simulation-additional';
+@import './technical-docs';
+
+.exhibit-container {
+  @include container;
+  padding-top: $space-3xl;
+  padding-bottom: $space-3xl;
+  background: $museum-white;
+}
+
+.exhibit-header {
+  text-align: center;
+  margin-bottom: $space-3xl;
+  
+  .exhibit-title {
+    @include h1;
+    margin-bottom: $space-lg;
+  }
+  
+  .exhibit-subtitle {
+    @include body-text('large');
+    color: $text-secondary;
+    margin-bottom: $space-xl;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .action-buttons {
+    display: flex;
+    gap: $space-md;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    .btn-primary {
+      @include button-primary;
+    }
+    
+    .btn-secondary {
+      @include button-secondary;
+    }
+  }
+}
+
+.demo-section {
+  margin-bottom: $space-3xl;
+  padding: $space-xl;
+
+.chart-container {
+  width: 100%;
+  position: relative;
+  margin: $space-lg 0;
+}
+
+.chart-caption {
+  font-size: 14px;
+  color: $text-secondary;
+  text-align: center;
+  
+  strong {
+    color: $text-primary;
+  }
+}
+  background: $gallery-gray;
+  border-radius: $radius-md;
+  
+  h2 {
+    @include h2;
+    margin-bottom: $space-xl;
+    text-align: center;
+  }
+}
+
+.demo-container {
+  display: flex;
+  gap: $space-lg;
+  flex-wrap: wrap;
+  
+  @include tablet {
+    flex-direction: column;
+  }
+  
+  .demo-panel {
+    @include museum-card;
+    flex: 1;
+    min-width: 280px;
+    
+    h3 {
+      @include h3;
+      font-size: $text-body-lg;
+      margin-bottom: $space-lg;
+      padding-bottom: $space-md;
+      border-bottom: 2px solid $gallery-gray;
+    }
+  }
+}
+
+.stock-selector {
+  .stock-search {
+    @include body-text();
+    width: 100%;
+    padding: $space-sm $space-md;
+    margin-bottom: $space-md;
+    border: 2px solid $gallery-gray;
+    border-radius: $radius-sm;
+    background: $museum-white;
+    
+    &:focus {
+      outline: none;
+      border-color: $gold-frame;
+    }
+  }
+  
+  .selected-stocks {
+    display: flex;
+    gap: $space-sm;
+    flex-wrap: wrap;
+    
+    .stock-chip {
+      @include body-text('small');
+      background: $charcoal;
+      color: $museum-white;
+      padding: $space-xs $space-md;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+  }
+}
+
+.chart-placeholder {
+  height: 240px;
+  background: $gallery-gray;
+  border: 3px dashed darken($gallery-gray, 10%);
+  border-radius: $radius-sm;
+  @include flex-center;
+  flex-direction: column;
+  
+  p {
+    @include body-text();
+    margin: $space-sm 0;
+    color: $text-secondary;
+    
+    &:first-child {
+      font-weight: 600;
+      color: $text-primary;
+    }
+  }
+}
+
+.weights-display {
+  .weight-item {
+    @include body-text();
+    padding: $space-md 0;
+    border-bottom: 1px solid $gallery-gray;
+    display: flex;
+    justify-content: space-between;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.analytics-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-xl;
+  
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.risk-panel {
+  @include museum-card;
+  
+  h3 {
+    @include h3;
+    font-size: $text-body-lg;
+    margin-bottom: $space-lg;
+    padding-bottom: $space-md;
+    border-bottom: 2px solid $gallery-gray;
+  }
+  
+  .var-controls {
+    display: flex;
+    gap: $space-xl;
+    margin-bottom: $space-lg;
+    align-items: center;
+    
+    @include mobile {
+      flex-direction: column;
+      gap: $space-md;
+      align-items: stretch;
+    }
+    
+    label {
+      @include body-text();
+      font-weight: 600;
+      color: $text-primary;
+      margin-right: $space-sm;
+    }
+    
+    select {
+      @include body-text();
+      padding: $space-xs $space-md;
+      border: 2px solid $gallery-gray;
+      border-radius: $radius-sm;
+      background: $museum-white;
+      cursor: pointer;
+      
+      &:focus {
+        outline: none;
+        border-color: $gold-frame;
+      }
+    }
+  }
+  
+  .var-result {
+    background: rgba($gold-frame, 0.1);
+    padding: $space-lg;
+    border-radius: $radius-sm;
+    border: 2px solid rgba($gold-frame, 0.3);
+    
+    p {
+      @include body-text();
+      margin: $space-sm 0;
+      
+      &:first-child {
+        font-size: $text-body-lg;
+        font-weight: 700;
+        color: $charcoal;
+        margin-bottom: $space-md;
+      }
+      
+      &:last-child {
+        font-style: italic;
+        color: $text-secondary;
+      }
+    }
+  }
+}
+
+.backtest-panel {
+  @include museum-card;
+  
+  h3 {
+    @include h3;
+    font-size: $text-body-lg;
+    margin-bottom: $space-lg;
+    padding-bottom: $space-md;
+    border-bottom: 2px solid $gallery-gray;
+  }
+  
+  .strategy-select {
+    @include body-text();
+    width: 100%;
+    padding: $space-sm $space-md;
+    margin-bottom: $space-xl;
+    border: 2px solid $gallery-gray;
+    border-radius: $radius-sm;
+    background: $museum-white;
+    cursor: pointer;
+    
+    &:focus {
+      outline: none;
+      border-color: $gold-frame;
+    }
+  }
+  
+  .backtest-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-md;
+    
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.metric-card {
+  background: $gallery-gray;
+  padding: $space-lg;
+  border-radius: $radius-sm;
+  text-align: center;
+  border: 1px solid darken($gallery-gray, 5%);
+  
+  .metric-label {
+    @include body-text('small');
+    display: block;
+    color: $text-secondary;
+    margin-bottom: $space-sm;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .metric-value {
+    @include h3;
+    font-size: $text-h3;
+    color: $success;
+    
+    &:has-text("-") {
+      color: $error;
+    }
+  }
+}
+
+.technical-section {
+  margin-top: $space-3xl;
+  padding-top: $space-3xl;
+  border-top: 1px solid $gallery-gray;
+  
+  h2 {
+    @include h2;
+    text-align: center;
+    margin-bottom: $space-xl;
+  }
+  
+  .tech-tabs {
+    display: flex;
+    gap: $space-xs;
+    margin-bottom: $space-xl;
+    border-bottom: 2px solid $gallery-gray;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    .tab-button {
+      @include body-text();
+      padding: $space-md $space-lg;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: $text-secondary;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        color: $charcoal;
+      }
+      
+      &.active {
+        color: $charcoal;
+        font-weight: 600;
+        border-bottom-color: $gold-frame;
+      }
+    }
+  }
+  
+  .tab-content {
+    @include museum-card;
+    max-width: 800px;
+    margin: 0 auto;
+    
+    h3 {
+      @include h3;
+      margin-bottom: $space-md;
+    }
+    
+    p {
+      @include body-text();
+      color: $text-secondary;
+      margin-bottom: $space-md;
+    }
+    
+    ul {
+      margin-top: $space-md;
+      padding-left: $space-lg;
+      
+      li {
+        @include body-text();
+        color: $text-primary;
+        margin-bottom: $space-sm;
+      }
+    }
+  }
+}
+
+.behind-scenes {
+  margin-top: $space-3xl;
+  padding: $space-xl;
+  background: $gallery-gray;
+  border-radius: $radius-md;
+  
+  h2 {
+    @include h2;
+    text-align: center;
+    margin-bottom: $space-xl;
+  }
+  
+  .story-content {
+    max-width: 800px;
+    margin: 0 auto;
+    
+    p {
+      @include body-text();
+      color: $text-secondary;
+      margin-bottom: $space-md;
+    }
+    
+    ul {
+      margin-top: $space-md;
+      padding-left: $space-lg;
+      
+      li {
+        @include body-text();
+        color: $text-primary;
+        margin-bottom: $space-sm;
+      }
+    }
+  }
+}

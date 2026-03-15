@@ -1,0 +1,409 @@
+<div class="exhibit-container">
+  <!-- Exhibit Header -->
+  <header class="exhibit-header">
+    <h1 class="exhibit-title">Stock Market Simulation Platform</h1>
+    <p class="exhibit-subtitle">A comprehensive quantitative finance platform demonstrating portfolio optimization, risk analytics, and algorithmic backtesting</p>
+
+    <div class="action-buttons">
+      <a href="#demo" class="btn btn-primary">Live Demo</a>
+      <a href="https://github.com/yourusername/stock-simulation" target="_blank" class="btn btn-secondary">View Source</a>
+      <button class="btn btn-secondary" (click)="showTechnicalDocs = !showTechnicalDocs">
+        {{ showTechnicalDocs ? 'Back to Demo' : 'Technical Docs' }}
+      </button>
+    </div>
+  </header>
+
+  <!-- Demo Sections -->
+  <div *ngIf="!showTechnicalDocs" class="demo-content">
+    <section id="demo" class="demo-section">
+    <h2>Portfolio Optimizer</h2>
+    <div class="demo-container">
+      <div class="demo-panel left">
+        <h3>Select Stocks</h3>
+        <p>Add stocks to your portfolio:</p>
+        <div class="stock-selector">
+          <input type="text" placeholder="Search stocks..." class="stock-search">
+          <div class="selected-stocks">
+            <span class="stock-chip">AAPL</span>
+            <span class="stock-chip">MSFT</span>
+            <span class="stock-chip">GOOGL</span>
+          </div>
+        </div>
+
+        <h3 class="constraints-title">Optimization Constraints</h3>
+        <div class="constraints-panel">
+          <label class="constraint-item">
+            <input type="checkbox" checked> No Short Selling
+          </label>
+          <label class="constraint-item">
+            <span>Max Position Size:</span>
+            <select class="constraint-select">
+              <option>20%</option>
+              <option>30%</option>
+              <option>50%</option>
+            </select>
+          </label>
+          <label class="constraint-item">
+            <span>Min Position Size:</span>
+            <select class="constraint-select">
+              <option>5%</option>
+              <option>10%</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="demo-panel center">
+        <h3>Efficient Frontier</h3>
+        <div class="chart-placeholder">
+          <p>[Interactive Efficient Frontier Chart]</p>
+          <p>Risk: 15.2% | Return: 12.8% | Sharpe: 0.84</p>
+        </div>
+      </div>
+
+      <div class="demo-panel right">
+        <h3>Portfolio Weights</h3>
+        <div class="weights-display">
+          <div class="weight-item">
+            <span>AAPL</span>
+            <span>35%</span>
+          </div>
+          <div class="weight-item">
+            <span>MSFT</span>
+            <span>40%</span>
+          </div>
+          <div class="weight-item">
+            <span>GOOGL</span>
+            <span>25%</span>
+          </div>
+        </div>
+        <div class="portfolio-metrics">
+          <div class="metric-row">
+            <span>Expected Return:</span>
+            <span class="metric-value positive">12.8%</span>
+          </div>
+          <div class="metric-row">
+            <span>Portfolio Risk:</span>
+            <span class="metric-value">15.2%</span>
+          </div>
+          <div class="metric-row">
+            <span>Sharpe Ratio:</span>
+            <span class="metric-value">0.84</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Risk Analytics & Strategy Testing</h2>
+    <div class="demo-container analytics-container">
+      <div class="risk-panel">
+        <h3>Value at Risk (VaR)</h3>
+        <div class="var-controls">
+          <label>Method:</label>
+          <select>
+            <option>Historical</option>
+            <option>Parametric</option>
+            <option>Monte Carlo</option>
+          </select>
+          <label>Confidence:</label>
+          <select>
+            <option>95%</option>
+            <option>99%</option>
+          </select>
+        </div>
+        <div class="var-result">
+          <p>1-Day VaR: $2,450</p>
+          <p>"With 95% confidence, you won't lose more than $2,450 in a day"</p>
+        </div>
+
+        <div class="cvar-result">
+          <h4>Conditional VaR (CVaR)</h4>
+          <p>Expected loss beyond VaR: <strong>$3,200</strong></p>
+          <p class="cvar-explanation">Average loss in the worst 5% of scenarios</p>
+        </div>
+      </div>
+
+      <div class="backtest-panel">
+        <h3>Strategy Backtester</h3>
+        <select class="strategy-select">
+          <option>Buy & Hold</option>
+          <option>Moving Average Crossover</option>
+          <option>Mean Reversion</option>
+          <option>Momentum</option>
+        </select>
+
+        <div class="backtest-results">
+          <div class="metric-card">
+            <span class="metric-label">Total Return</span>
+            <span class="metric-value positive">+45.2%</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Annual Return</span>
+            <span class="metric-value positive">+22.1%</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Sharpe Ratio</span>
+            <span class="metric-value">1.24</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Max Drawdown</span>
+            <span class="metric-value negative">-18.5%</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Win Rate</span>
+            <span class="metric-value">68%</span>
+          </div>
+          <div class="metric-card">
+            <span class="metric-label">Trades</span>
+            <span class="metric-value">47</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section">
+    <h2>Correlation & Risk Analysis</h2>
+    <div class="demo-container">
+      <div class="correlation-panel">
+        <h3>Correlation Matrix</h3>
+        <div class="correlation-heatmap">
+          <div class="heatmap-placeholder">
+            <p>[Interactive Correlation Heatmap]</p>
+            <div class="correlation-grid">
+              <div class="correlation-row">
+                <span class="stock-label">AAPL</span>
+                <span class="correlation-cell high">1.00</span>
+                <span class="correlation-cell medium">0.65</span>
+                <span class="correlation-cell low">0.42</span>
+              </div>
+              <div class="correlation-row">
+                <span class="stock-label">MSFT</span>
+                <span class="correlation-cell medium">0.65</span>
+                <span class="correlation-cell high">1.00</span>
+                <span class="correlation-cell medium">0.58</span>
+              </div>
+              <div class="correlation-row">
+                <span class="stock-label">GOOGL</span>
+                <span class="correlation-cell low">0.42</span>
+                <span class="correlation-cell medium">0.58</span>
+                <span class="correlation-cell high">1.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="correlation-insights">
+          <h4>Diversification Insights</h4>
+          <ul>
+            <li>AAPL-MSFT: High correlation (0.65) - Both tech giants move together</li>
+            <li>AAPL-GOOGL: Lower correlation (0.42) - Better diversification</li>
+            <li>Rolling 30-day correlation shows increasing correlation during market stress</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="risk-attribution-panel">
+        <h3>Risk Attribution</h3>
+        <div class="risk-breakdown">
+          <h4>Risk Contribution by Stock</h4>
+          <div class="risk-bars">
+            <div class="risk-bar-item">
+              <span class="stock-name">MSFT</span>
+              <div class="risk-bar-container">
+                <div class="risk-bar" style="width: 45%"></div>
+                <span class="risk-percentage">45%</span>
+              </div>
+            </div>
+            <div class="risk-bar-item">
+              <span class="stock-name">AAPL</span>
+              <div class="risk-bar-container">
+                <div class="risk-bar" style="width: 35%"></div>
+                <span class="risk-percentage">35%</span>
+              </div>
+            </div>
+            <div class="risk-bar-item">
+              <span class="stock-name">GOOGL</span>
+              <div class="risk-bar-container">
+                <div class="risk-bar" style="width: 20%"></div>
+                <span class="risk-percentage">20%</span>
+              </div>
+            </div>
+          </div>
+
+          <h4>Risk by Factor</h4>
+          <div class="factor-risks">
+            <div class="factor-item">
+              <span>Market Risk:</span>
+              <span class="factor-value">78%</span>
+            </div>
+            <div class="factor-item">
+              <span>Sector Risk:</span>
+              <span class="factor-value">15%</span>
+            </div>
+            <div class="factor-item">
+              <span>Idiosyncratic:</span>
+              <span class="factor-value">7%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
+
+  <!-- Technical Documentation Content -->
+  <div *ngIf="showTechnicalDocs" class="technical-docs-content" ng-include="'technical-docs.html'">
+
+    <div class="tech-tabs">
+      <button class="tab-button" [class.active]="activeTab === 'architecture'" (click)="activeTab = 'architecture'">Architecture</button>
+      <button class="tab-button" [class.active]="activeTab === 'code'" (click)="activeTab = 'code'">Code Samples</button>
+      <button class="tab-button" [class.active]="activeTab === 'api'" (click)="activeTab = 'api'">API Docs</button>
+      <button class="tab-button" [class.active]="activeTab === 'algorithms'" (click)="activeTab = 'algorithms'">Algorithms</button>
+      <button class="tab-button" [class.active]="activeTab === 'challenges'" (click)="activeTab = 'challenges'">Behind the Scenes</button>
+    </div>
+
+    <div class="tab-content">
+      <!-- Architecture Tab -->
+      <div *ngIf="activeTab === 'architecture'">
+        <h3>Clean Architecture</h3>
+        <p>Built with Domain-Driven Design principles and Clean Architecture:</p>
+        <ul>
+          <li><strong>Domain Layer</strong>: Core business entities and logic with no external dependencies</li>
+          <li><strong>Application Layer</strong>: Use cases and orchestration, DTOs and service interfaces</li>
+          <li><strong>Infrastructure Layer</strong>: External integrations (FMP API) and data persistence (EF Core)</li>
+          <li><strong>API Layer</strong>: RESTful endpoints with proper DI configuration</li>
+        </ul>
+
+        <h4>Key Design Decisions</h4>
+        <ul>
+          <li>Repository pattern for data access abstraction</li>
+          <li>Gateway pattern for external API integration</li>
+          <li>No Unit of Work pattern - repositories handle SaveChanges directly</li>
+          <li>SQLite for simplicity with database serving as cache</li>
+        </ul>
+      </div>
+
+      <!-- Code Samples Tab -->
+      <div *ngIf="activeTab === 'code'">
+        <h3>Code Examples</h3>
+        <h4>Portfolio Optimization (F#)</h4>
+        <pre><code>type OptimizedPortfolio  =  &lbrace; &lbrace;
+    Weights: Map&lt;string, float&gt;
+    ExpectedReturn: float
+    Risk: float
+    SharpeRatio: float
+&rbrace;&rbrace;
+
+let optimizePortfolio (prices: PriceHistory) constraints =
+    let returns = calculateReturns prices
+    let covMatrix = calculateCovariance returns
+
+    // Quadratic optimization
+    let optimal = minimize (risk - λ * expectedReturn)
+                  subject to constraints
+    optimal</code></pre>
+
+        <h4>Clean Architecture Repository</h4>
+        <pre><code>public class CompanyRepository : ICompanyRepository
+ &lbrace;  &lbrace;
+    private readonly StockSimulationDbContext _context;
+
+    public async Task&lt;Company?&gt; GetBySymbolAsync(string symbol)
+     &lbrace; &lbrace;
+        return await _context.Companies
+            .FirstOrDefaultAsync(c => c.Symbol == symbol);
+    &rbrace;&rbrace;
+&rbrace;&rbrace;</code></pre>
+      </div>
+
+      <!-- API Docs Tab -->
+      <div *ngIf="activeTab === 'api'">
+        <h3>API Endpoints</h3>
+
+        <div class="api-endpoint">
+          <h4>GET /api/companies/search</h4>
+          <p>Search for companies by symbol or name</p>
+          <pre><code>Query params: ?query=AAPL
+Response: [ &lbrace; &lbrace; symbol: "AAPL", name: "Apple Inc.", exchange: "NASDAQ" &rbrace;&rbrace;]</code></pre>
+        </div>
+
+        <div class="api-endpoint">
+          <h4>GET /api/stocks/ &lbrace;symbol&rbrace;/prices</h4>
+          <p>Get historical prices for a stock</p>
+          <pre><code>Query params: ?from=2024-01-01&to=2024-12-31
+Response: [ &lbrace; &lbrace; date: "2024-01-01", open: 150.0, close: 152.0, volume: 1000000 &rbrace;&rbrace;]</code></pre>
+        </div>
+
+        <div class="api-endpoint">
+          <h4>POST /api/portfolio/optimize</h4>
+          <p>Optimize portfolio weights</p>
+          <pre><code>Body:  &lbrace; &lbrace; symbols: ["AAPL", "MSFT"], constraints:  &lbrace; &lbrace; maxWeight: 0.3 &rbrace;&rbrace; &rbrace;&rbrace;
+Response:  &lbrace; &lbrace; weights:  &lbrace; &lbrace; AAPL: 0.3, MSFT: 0.7 &rbrace;&rbrace;, expectedReturn: 0.12, risk: 0.15 &rbrace;&rbrace;</code></pre>
+        </div>
+      </div>
+
+      <!-- Algorithms Tab -->
+      <div *ngIf="activeTab === 'algorithms'">
+        <h3>Quantitative Algorithms</h3>
+
+        <h4>Modern Portfolio Theory (MPT)</h4>
+        <p>The portfolio optimization uses Markowitz mean-variance optimization:</p>
+        <ul>
+          <li>Minimize: σ²<sub>p</sub> - λ × μ<sub>p</sub></li>
+          <li>Where σ²<sub>p</sub> is portfolio variance and μ<sub>p</sub> is expected return</li>
+          <li>Subject to: Σw<sub>i</sub> = 1 and 0 ≤ w<sub>i</sub> ≤ w<sub>max</sub></li>
+        </ul>
+
+        <h4>Value at Risk (VaR)</h4>
+        <p>Three methods implemented:</p>
+        <ul>
+          <li><strong>Historical VaR</strong>: 5th percentile of historical returns</li>
+          <li><strong>Parametric VaR</strong>: μ - z<sub>α</sub> × σ (assumes normal distribution)</li>
+          <li><strong>Monte Carlo VaR</strong>: Simulate 10,000 scenarios using historical volatility</li>
+        </ul>
+
+        <h4>Backtesting Engine</h4>
+        <p>Walk-forward analysis with proper handling of:</p>
+        <ul>
+          <li>Transaction costs (bid-ask spread + commission)</li>
+          <li>Market impact modeling</li>
+          <li>No look-ahead bias</li>
+        </ul>
+      </div>
+
+      <!-- Behind the Scenes Tab -->
+      <div *ngIf="activeTab === 'challenges'">
+        <h3>Behind the Scenes</h3>
+        <p>This project combines software engineering excellence with quantitative finance knowledge.</p>
+
+        <h4>Key Challenges & Solutions</h4>
+
+        <h5>1. Portfolio Optimization Performance</h5>
+        <p><strong>Challenge:</strong> Quadratic optimization with 100+ assets was slow</p>
+        <p><strong>Solution:</strong> Implemented efficient matrix operations using Math.NET Numerics and cached covariance matrices</p>
+
+        <h5>2. Real-time Market Data</h5>
+        <p><strong>Challenge:</strong> FMP API has 250 calls/day limit</p>
+        <p><strong>Solution:</strong> Database-first approach with intelligent caching and batch fetching</p>
+
+        <h5>3. Backtesting Accuracy</h5>
+        <p><strong>Challenge:</strong> Avoiding look-ahead bias in strategy testing</p>
+        <p><strong>Solution:</strong> Strict temporal ordering and point-in-time data access patterns</p>
+
+        <h5>4. Financial Visualizations</h5>
+        <p><strong>Challenge:</strong> Making complex concepts intuitive</p>
+        <p><strong>Solution:</strong> Interactive charts with educational tooltips and progressive disclosure</p>
+
+        <h4>Lessons Learned</h4>
+        <ul>
+          <li>Clean Architecture really shines in financial applications where business logic complexity is high</li>
+          <li>F# was perfect for the mathematical calculations - immutability and type safety prevented many bugs</li>
+          <li>Caching strategy is crucial when working with rate-limited APIs</li>
+          <li>Financial data requires careful handling of edge cases (splits, dividends, missing data)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

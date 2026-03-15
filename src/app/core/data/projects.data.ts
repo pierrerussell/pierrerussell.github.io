@@ -8,11 +8,12 @@ export class ProjectsData {
       title: 'Market Strategy Simulator',
       description: 'Advanced financial analysis platform with historical data visualization and quantitative strategy simulations.',
       detailedDescription: 'A comprehensive stock market simulator that allows users to search stocks, visualize 2 years of historical price data, and run multiple quantitative trading strategies with detailed risk analysis and potential payoff calculations.',
-      technologies: [TechnologyName.Git, TechnologyName.ASPNet, TechnologyName.CSharp, TechnologyName.FSharp, TechnologyName.Azure],
+      technologies: [TechnologyName.ASPNet, TechnologyName.CSharp, TechnologyName.Azure],
       category: ProjectCategory.Backend,
       featured: false,
       status: ProjectStatus.InProgress,
       githubUrl: 'https://github.com/pierrerussell/StockSimulation',
+      demoUrl: '/exhibits/stock-simulation',
       highlights: [
       ],
       challenges: [
@@ -22,6 +23,34 @@ export class ProjectsData {
     },
     {
       id: 2,
+      title: 'Financial Forecasting ML API',
+      description: 'Machine learning API for stock price predictions using Linear Regression and Random Forest models.',
+      detailedDescription: 'A FastAPI backend that fetches real-time financial data from FinancialModelingPrep and generates ML-based stock price predictions. Features dual-model comparison (Linear Regression vs Random Forest), technical indicator analysis, and comprehensive evaluation metrics including RMSE, MAE, and R2 scores.',
+      technologies: [TechnologyName.Python, TechnologyName.FastAPI, TechnologyName.Azure, TechnologyName.GitHub],
+      category: ProjectCategory.AI_ML,
+      featured: false,
+      status: ProjectStatus.Completed,
+      githubUrl: 'https://github.com/pierrerussell/MLProject',
+      demoUrl: '/exhibits/ml-forecasting',
+      highlights: [
+        'Dual ML model comparison (Linear Regression & Random Forest)',
+        'Real-time financial data integration via FMP API',
+        'Technical indicators and feature engineering',
+        'Configurable prediction horizons (1-24 periods)'
+      ],
+      challenges: [
+        'Handling insufficient historical data gracefully',
+        'Balancing model complexity with prediction accuracy',
+        'Building a clean async architecture with FastAPI'
+      ],
+      outcomes: [
+        'Production-ready REST API with interactive docs',
+        'Automated model evaluation and best-model recommendation',
+        'Foundation for frontend visualization integration'
+      ]
+    },
+    {
+      id: 3,
       title: 'Digital Museum Portfolio',
       description: 'A creative portfolio website showcasing software engineering projects with an immersive museum experience.',
       detailedDescription: 'An Angular-powered portfolio that reimagines the traditional developer portfolio as an interactive digital museum. Features include typewriter animations, project exhibits, and a unique visual design that helps developers stand out to recruiters.',

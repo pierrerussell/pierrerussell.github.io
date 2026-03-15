@@ -1,0 +1,588 @@
+@use '../../../shared/styles/variables' as *;
+@use '../../../shared/styles/mixins' as *;
+
+.exhibit-container {
+  @include container;
+  padding-top: $space-3xl;
+  padding-bottom: $space-3xl;
+  background: $museum-white;
+}
+
+.exhibit-header {
+  text-align: center;
+  margin-bottom: $space-3xl;
+
+  .exhibit-title {
+    @include h1;
+    margin-bottom: $space-lg;
+  }
+
+  .exhibit-subtitle {
+    @include body-text('large');
+    color: $text-secondary;
+    margin-bottom: $space-xl;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .action-buttons {
+    display: flex;
+    gap: $space-md;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .btn-primary {
+      @include button-primary;
+    }
+
+    .btn-secondary {
+      @include button-secondary;
+    }
+  }
+}
+
+.demo-section {
+  margin-bottom: $space-3xl;
+  padding: $space-xl;
+  background: $gallery-gray;
+  border-radius: $radius-md;
+
+  h2 {
+    @include h2;
+    margin-bottom: $space-xl;
+    text-align: center;
+  }
+}
+
+// Architecture Flow
+.architecture-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-md;
+  flex-wrap: wrap;
+
+  @include tablet {
+    flex-direction: column;
+  }
+}
+
+.flow-step {
+  @include museum-card;
+  text-align: center;
+  padding: $space-lg;
+  min-width: 180px;
+  flex: 1;
+  max-width: 220px;
+
+  .step-icon {
+    width: 40px;
+    height: 40px;
+    background: $charcoal;
+    color: $museum-white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto $space-md;
+    font-weight: 700;
+  }
+
+  h4 {
+    @include h3;
+    font-size: $text-body-lg;
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    @include body-text('small');
+    color: $text-secondary;
+  }
+}
+
+.flow-arrow {
+  @include h2;
+  color: $gold-frame;
+
+  @include tablet {
+    transform: rotate(90deg);
+  }
+}
+
+// Demo Container
+.demo-container {
+  display: flex;
+  gap: $space-lg;
+  flex-wrap: wrap;
+
+  @include tablet {
+    flex-direction: column;
+  }
+
+  .demo-panel {
+    @include museum-card;
+    flex: 1;
+    min-width: 280px;
+
+    h3 {
+      @include h3;
+      font-size: $text-body-lg;
+      margin-bottom: $space-lg;
+      padding-bottom: $space-md;
+      border-bottom: 2px solid $gallery-gray;
+    }
+
+    &.chart-panel {
+      flex: 2;
+      min-width: 400px;
+
+      @include tablet {
+        min-width: 100%;
+      }
+    }
+  }
+}
+
+// Configuration Form
+.config-form {
+  label {
+    @include body-text();
+    display: block;
+    font-weight: 600;
+    margin-bottom: $space-xs;
+    margin-top: $space-md;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .form-select {
+    @include body-text();
+    width: 100%;
+    padding: $space-sm $space-md;
+    border: 2px solid $gallery-gray;
+    border-radius: $radius-sm;
+    background: $museum-white;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: $gold-frame;
+    }
+  }
+
+  .checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    cursor: pointer;
+    font-weight: normal;
+
+    input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .generate-btn {
+    width: 100%;
+    margin-top: $space-xl;
+  }
+
+  .error-message {
+    margin-top: $space-md;
+    padding: $space-sm $space-md;
+    background: rgba($error, 0.1);
+    border: 1px solid $error;
+    border-radius: $radius-sm;
+    color: $error;
+    font-size: $text-body-sm;
+  }
+}
+
+// Chart
+.chart-container {
+  width: 100%;
+  position: relative;
+  margin: $space-lg 0;
+}
+
+.chart-caption {
+  @include body-text('small');
+  color: $text-secondary;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  gap: $space-lg;
+  flex-wrap: wrap;
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: $space-xs;
+  }
+
+  .legend-color {
+    width: 20px;
+    height: 3px;
+    border-radius: 2px;
+
+    &.historical {
+      background: #4285f4;
+    }
+
+    &.lr {
+      background: #ea4335;
+      border-style: dashed;
+    }
+
+    &.rf {
+      background: #34a853;
+      border-style: dashed;
+    }
+  }
+}
+
+// Predictions
+.best-model {
+  color: $success;
+}
+
+.model-recommendation {
+  @include body-text('small');
+  color: $text-secondary;
+  margin-bottom: $space-lg;
+}
+
+.predictions-list {
+  h4 {
+    @include body-text();
+    font-weight: 600;
+    margin-bottom: $space-md;
+  }
+
+  .prediction-row {
+    @include body-text();
+    display: flex;
+    justify-content: space-between;
+    padding: $space-sm 0;
+    border-bottom: 1px solid $gallery-gray;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .pred-date {
+      color: $text-secondary;
+    }
+
+    .pred-value {
+      font-weight: 600;
+      color: $success;
+    }
+  }
+}
+
+// Model Comparison
+.model-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-xl;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.model-card {
+  @include museum-card;
+  border: 2px solid transparent;
+
+  &.featured {
+    border-color: $gold-frame;
+    box-shadow: 0 4px 20px rgba($gold-frame, 0.15);
+  }
+
+  .model-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: $space-md;
+    margin-bottom: $space-lg;
+    border-bottom: 2px solid $gallery-gray;
+
+    h3 {
+      @include h3;
+      font-size: $text-body-lg;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    .model-badge {
+      @include body-text('small');
+      padding: $space-xs $space-md;
+      border-radius: 20px;
+      background: $gallery-gray;
+      color: $text-secondary;
+
+      &.winner {
+        background: $gold-frame;
+        color: $charcoal;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .model-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $space-md;
+    margin-bottom: $space-lg;
+
+    .metric-item {
+      text-align: center;
+      padding: $space-md;
+      background: $gallery-gray;
+      border-radius: $radius-sm;
+
+      .metric-label {
+        @include body-text('small');
+        display: block;
+        color: $text-secondary;
+        margin-bottom: $space-xs;
+      }
+
+      .metric-value {
+        @include h3;
+        font-size: $text-h3;
+
+        &.positive {
+          color: $success;
+        }
+      }
+    }
+  }
+
+  .model-description {
+    p {
+      @include body-text();
+      color: $text-secondary;
+      margin-bottom: $space-md;
+    }
+
+    ul {
+      padding-left: $space-lg;
+
+      li {
+        @include body-text('small');
+        color: $text-primary;
+        margin-bottom: $space-xs;
+      }
+    }
+  }
+}
+
+// Feature Importance
+.feature-panel {
+  @include museum-card;
+  flex: 1;
+
+  h3 {
+    @include h3;
+    font-size: $text-body-lg;
+    margin-bottom: $space-md;
+    padding-bottom: $space-md;
+    border-bottom: 2px solid $gallery-gray;
+  }
+
+  .feature-description {
+    @include body-text();
+    color: $text-secondary;
+    margin-bottom: $space-lg;
+  }
+}
+
+.feature-bars {
+  .feature-bar-item {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    margin-bottom: $space-md;
+
+    .feature-name {
+      @include body-text('small');
+      font-family: monospace;
+      min-width: 100px;
+      color: $text-primary;
+    }
+
+    .feature-bar-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: $space-sm;
+    }
+
+    .feature-bar {
+      height: 24px;
+      background: linear-gradient(90deg, $gold-frame, darken($gold-frame, 10%));
+      border-radius: $radius-sm;
+      transition: width 0.3s ease;
+    }
+
+    .feature-percentage {
+      @include body-text('small');
+      font-weight: 600;
+      min-width: 40px;
+    }
+  }
+}
+
+.technical-indicators-panel {
+  @include museum-card;
+  flex: 1;
+
+  h3 {
+    @include h3;
+    font-size: $text-body-lg;
+    margin-bottom: $space-lg;
+    padding-bottom: $space-md;
+    border-bottom: 2px solid $gallery-gray;
+  }
+
+  .indicators-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $space-md;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .indicator-card {
+    padding: $space-md;
+    background: $gallery-gray;
+    border-radius: $radius-sm;
+
+    h4 {
+      @include body-text();
+      font-weight: 600;
+      margin-bottom: $space-xs;
+    }
+
+    p {
+      @include body-text('small');
+      color: $text-secondary;
+    }
+  }
+}
+
+// API Documentation
+.api-documentation {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-lg;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.endpoint-card {
+  @include museum-card;
+
+  .endpoint-header {
+    display: flex;
+    align-items: center;
+    gap: $space-md;
+    margin-bottom: $space-md;
+
+    .method-badge {
+      @include body-text('small');
+      padding: $space-xs $space-sm;
+      border-radius: $radius-sm;
+      font-weight: 700;
+      font-family: monospace;
+
+      &.get {
+        background: rgba($success, 0.15);
+        color: $success;
+      }
+
+      &.post {
+        background: rgba(#4285f4, 0.15);
+        color: #4285f4;
+      }
+    }
+
+    .endpoint-path {
+      @include body-text();
+      font-family: monospace;
+      color: $text-primary;
+    }
+  }
+
+  .endpoint-description {
+    @include body-text();
+    color: $text-secondary;
+    margin-bottom: $space-md;
+  }
+
+  .endpoint-example {
+    background: $charcoal;
+    padding: $space-md;
+    border-radius: $radius-sm;
+
+    .example-label {
+      @include body-text('small');
+      color: $text-secondary;
+      display: block;
+      margin-bottom: $space-xs;
+    }
+
+    code {
+      @include body-text('small');
+      font-family: monospace;
+      color: $museum-white;
+      word-break: break-all;
+    }
+  }
+}
+
+// Tech Stack
+.tech-stack-section {
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: $space-lg;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .tech-item {
+    @include museum-card;
+    text-align: center;
+
+    h4 {
+      @include body-text();
+      font-weight: 700;
+      margin-bottom: $space-sm;
+      color: $charcoal;
+    }
+
+    p {
+      @include body-text('small');
+      color: $text-secondary;
+    }
+  }
+}
