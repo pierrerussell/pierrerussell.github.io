@@ -75,6 +75,23 @@ export class ProjectsData {
         'Clean, maintainable Angular codebase',
         'Creative approach to developer branding'
       ]
+    },
+    {
+      id: 4,
+      title: 'Limit Order Book Engine',
+      description: 'High-performance limit order book implementation in Rust for simulating exchange-level order matching.',
+      detailedDescription: 'A systems-level implementation of a limit order book (LOB) in Rust, designed for low-latency order matching and market simulation. Features efficient data structures for price-time priority matching, real-time order book depth tracking, and support for various order types.',
+      technologies: [TechnologyName.Git, TechnologyName.GitHub, TechnologyName.Rust],
+      category: ProjectCategory.Backend,
+      featured: false,
+      status: ProjectStatus.InProgress,
+      githubUrl: 'https://github.com/pierrerussell/Rust-LOB',
+      highlights: [
+      ],
+      challenges: [
+      ],
+      outcomes: [
+      ]
     }
   ];
 

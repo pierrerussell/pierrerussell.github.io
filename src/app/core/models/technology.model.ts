@@ -25,6 +25,7 @@ export enum TechnologyName {
   Express = 'Express',
   Python = 'Python',
   FastAPI = 'FastAPI',
+  Rust = 'Rust',
   Go = 'Go',
   CSharp = 'C#',
   FSharp = 'F#',
