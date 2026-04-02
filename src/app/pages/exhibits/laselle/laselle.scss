@@ -1,0 +1,678 @@
+@use '../../../shared/styles/variables' as *;
+@use '../../../shared/styles/mixins' as *;
+
+.exhibit-container {
+  @include container;
+  padding-top: $space-3xl;
+  padding-bottom: $space-3xl;
+  background: $museum-white;
+}
+
+.exhibit-header {
+  text-align: center;
+  margin-bottom: $space-3xl;
+
+  .project-badge {
+    display: inline-block;
+    @include body-text('small');
+    font-weight: 600;
+    padding: $space-xs $space-md;
+    background: linear-gradient(135deg, $deep-navy, lighten($deep-navy, 10%));
+    color: $museum-white;
+    border-radius: 20px;
+    margin-bottom: $space-lg;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .exhibit-title {
+    @include h1;
+    margin-bottom: $space-lg;
+  }
+
+  .exhibit-subtitle {
+    @include body-text('large');
+    color: $text-secondary;
+    margin-bottom: $space-xl;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header-note {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-sm;
+    @include body-text('small');
+    color: $text-secondary;
+    padding: $space-md $space-lg;
+    background: $gallery-gray;
+    border-radius: $radius-md;
+    border-left: 3px solid $gold-frame;
+
+    .note-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+
+      svg {
+        width: 100%;
+        height: 100%;
+        color: $gold-frame;
+      }
+    }
+  }
+}
+
+.demo-section {
+  margin-bottom: $space-3xl;
+  padding: $space-xl;
+  background: $gallery-gray;
+  border-radius: $radius-md;
+
+  h2 {
+    @include h2;
+    margin-bottom: $space-xl;
+    text-align: center;
+  }
+
+  .section-intro {
+    @include body-text();
+    color: $text-secondary;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto $space-xl;
+
+    strong {
+      color: $text-primary;
+    }
+  }
+}
+
+// Overview Section
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-xl;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.overview-card {
+  @include museum-card;
+
+  h3 {
+    @include h3;
+    font-size: $text-body-lg;
+    margin-bottom: $space-md;
+    padding-bottom: $space-md;
+    border-bottom: 2px solid $gallery-gray;
+  }
+
+  p {
+    @include body-text();
+    color: $text-secondary;
+    margin-bottom: $space-md;
+  }
+
+  ul {
+    padding-left: $space-lg;
+    margin: 0;
+
+    li {
+      @include body-text();
+      color: $text-primary;
+      margin-bottom: $space-sm;
+
+      &::marker {
+        color: $gold-frame;
+      }
+    }
+  }
+}
+
+// Workflow Section
+.workflow-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-lg;
+}
+
+.workflow-phase {
+  @include museum-card;
+  flex: 1;
+  min-width: 200px;
+  max-width: 280px;
+  position: relative;
+  text-align: center;
+
+  @include mobile {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .phase-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-sm;
+    margin-bottom: $space-md;
+
+    .phase-number {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, $gold-frame, darken($gold-frame, 10%));
+      color: $charcoal;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      @include body-text();
+    }
+
+    h3 {
+      @include h3;
+      font-size: $text-body-lg;
+      margin: 0;
+    }
+  }
+
+  .phase-description {
+    @include body-text('small');
+    color: $text-secondary;
+    margin-bottom: $space-md;
+  }
+
+  .status-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-xs;
+    justify-content: center;
+  }
+
+  .status-chip {
+    @include body-text('small');
+    font-size: 11px;
+    padding: 2px $space-sm;
+    background: $gallery-gray;
+    border-radius: 12px;
+    color: $text-secondary;
+  }
+
+  .phase-connector {
+    display: none;
+
+    @include desktop {
+      display: block;
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $gold-frame;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+// Features Section
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-lg;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-card {
+  @include museum-card;
+  text-align: center;
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto $space-md;
+    background: linear-gradient(135deg, rgba($gold-frame, 0.1), rgba($gold-frame, 0.2));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      color: $gold-frame;
+    }
+  }
+
+  h3 {
+    @include body-text();
+    font-weight: 700;
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    @include body-text('small');
+    color: $text-secondary;
+  }
+}
+
+// SDLC Timeline
+.sdlc-section {
+  background: linear-gradient(180deg, $gallery-gray 0%, rgba($deep-navy, 0.05) 100%);
+}
+
+.sdlc-timeline {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sdlc-phase {
+  display: flex;
+  gap: $space-lg;
+  margin-bottom: $space-xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  .phase-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+
+    .marker-number {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, $deep-navy, lighten($deep-navy, 10%));
+      color: $museum-white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      @include body-text();
+      box-shadow: 0 4px 12px rgba($deep-navy, 0.3);
+    }
+
+    .marker-line {
+      width: 3px;
+      flex: 1;
+      background: linear-gradient(180deg, $deep-navy, rgba($deep-navy, 0.3));
+      margin-top: $space-sm;
+      min-height: 60px;
+    }
+  }
+
+  .phase-content {
+    @include museum-card;
+    flex: 1;
+    border-left: 3px solid $deep-navy;
+
+    h3 {
+      @include h3;
+      font-size: $text-body-lg;
+      margin-bottom: $space-xs;
+      color: $deep-navy;
+    }
+
+    .phase-description {
+      @include body-text();
+      color: $text-secondary;
+      margin-bottom: $space-md;
+      font-style: italic;
+    }
+
+    .activities-list {
+      margin: 0 0 $space-md 0;
+      padding-left: $space-lg;
+
+      li {
+        @include body-text();
+        color: $text-primary;
+        margin-bottom: $space-sm;
+        position: relative;
+
+        &::marker {
+          color: $gold-frame;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .phase-outcome {
+      @include body-text();
+      color: $text-secondary;
+      margin: 0;
+      padding-top: $space-md;
+      border-top: 2px solid $gallery-gray;
+      background: rgba($success, 0.05);
+      margin: 0 (-$space-lg) (-$space-lg);
+      padding: $space-md $space-lg;
+      border-radius: 0 0 $radius-md $radius-md;
+
+      strong {
+        color: $success;
+      }
+    }
+  }
+}
+
+// Tech Stack Section
+.tech-section {
+  .tech-layers {
+    display: flex;
+    flex-direction: column;
+    gap: $space-xl;
+  }
+
+  .tech-layer {
+    h3 {
+      @include h3;
+      font-size: $text-body-lg;
+      margin-bottom: $space-md;
+      padding-bottom: $space-sm;
+      border-bottom: 2px solid $gold-frame;
+      display: inline-block;
+    }
+
+    .tech-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: $space-md;
+    }
+
+    .tech-item {
+      @include museum-card;
+      padding: $space-md;
+
+      h4 {
+        @include body-text();
+        font-weight: 700;
+        margin-bottom: $space-xs;
+        color: $charcoal;
+      }
+
+      p {
+        @include body-text('small');
+        color: $text-secondary;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Infrastructure Section
+.infrastructure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-lg;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.infrastructure-card {
+  @include museum-card;
+  display: flex;
+  flex-direction: column;
+
+  .infra-icon {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba($deep-navy, 0.1), rgba($deep-navy, 0.2));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: $space-md;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      color: $deep-navy;
+    }
+  }
+
+  h3 {
+    @include body-text();
+    font-weight: 700;
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    @include body-text();
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+// Architecture Decisions
+.decisions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-lg;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.decision-card {
+  @include museum-card;
+
+  h3 {
+    @include body-text();
+    font-weight: 700;
+    margin-bottom: $space-md;
+    padding-bottom: $space-sm;
+    border-bottom: 2px solid $gallery-gray;
+  }
+
+  p {
+    @include body-text();
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+// Challenges Section
+.challenges-container {
+  display: flex;
+  flex-direction: column;
+  gap: $space-lg;
+}
+
+.challenge-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-lg;
+  @include museum-card;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  .challenge, .solution {
+    h4 {
+      @include body-text('small');
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: $space-sm;
+    }
+
+    p {
+      @include body-text();
+      margin: 0;
+    }
+  }
+
+  .challenge {
+    h4 {
+      color: $error;
+    }
+
+    p {
+      color: $text-secondary;
+    }
+  }
+
+  .solution {
+    h4 {
+      color: $success;
+    }
+
+    p {
+      color: $text-primary;
+    }
+
+    @include tablet {
+      padding-top: $space-md;
+      border-top: 1px solid $gallery-gray;
+    }
+  }
+}
+
+// Impact Section
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $space-lg;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.impact-card {
+  @include museum-card;
+  text-align: center;
+
+  .impact-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto $space-md;
+    background: linear-gradient(135deg, rgba($success, 0.1), rgba($success, 0.2));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      color: $success;
+    }
+  }
+
+  h3 {
+    @include body-text();
+    font-weight: 700;
+    color: $charcoal;
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    @include body-text('small');
+    color: $text-secondary;
+    margin: 0;
+  }
+}
+
+// Access & Contact Section
+.access-section {
+  background: $museum-white;
+  border: 2px solid $gallery-gray;
+}
+
+.access-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-xl;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.access-card {
+  @include museum-card;
+  text-align: center;
+
+  .access-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto $space-lg;
+    background: $gallery-gray;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 28px;
+      height: 28px;
+      color: $charcoal;
+    }
+  }
+
+  h3 {
+    @include h3;
+    font-size: $text-body-lg;
+    margin-bottom: $space-md;
+  }
+
+  p {
+    @include body-text();
+    color: $text-secondary;
+    margin: 0;
+
+    a {
+      color: $deep-navy;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $gold-frame;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.contact-card {
+    .access-icon {
+      background: linear-gradient(135deg, rgba($gold-frame, 0.15), rgba($gold-frame, 0.25));
+
+      svg {
+        color: $gold-frame;
+      }
+    }
+  }
+}

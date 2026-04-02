@@ -5,20 +5,33 @@ export class ProjectsData {
   private static projects: Project[] = [
     {
       id: 1,
-      title: 'Market Strategy Simulator',
-      description: 'Advanced financial analysis platform with historical data visualization and quantitative strategy simulations.',
-      detailedDescription: 'A comprehensive stock market simulator that allows users to search stocks, visualize 2 years of historical price data, and run multiple quantitative trading strategies with detailed risk analysis and potential payoff calculations.',
-      technologies: [TechnologyName.ASPNet, TechnologyName.CSharp, TechnologyName.Azure],
-      category: ProjectCategory.Backend,
-      featured: false,
-      status: ProjectStatus.InProgress,
-      githubUrl: 'https://github.com/pierrerussell/StockSimulation',
-      demoUrl: '/exhibits/stock-simulation',
+      title: 'Lasalle House Booking System',
+      description: 'Enterprise booking management system for a not-for-profit retreat house, handling residential accommodations, meeting facilities, and guest services.',
+      detailedDescription: 'A comprehensive full-stack booking system built for a not-for-profit organisation managing retreat house operations. The system handles the complete booking lifecycle from initial enquiry through to post-stay analytics, featuring role-based access control, dynamic quote generation, and integrated meal planning.',
+      technologies: [TechnologyName.Angular, TechnologyName.TypeScript, TechnologyName.ASPNet, TechnologyName.CSharp, TechnologyName.Azure],
+      category: ProjectCategory.FullStack,
+      featured: true,
+      status: ProjectStatus.Completed,
+      imageUrl: 'images/exhibits/LasalleHouse.jpg',
+      demoUrl: '/exhibits/laselle',
       highlights: [
+        'Multi-phase booking workflow with 15+ distinct statuses',
+        'Role-based access control (Super Admin, Admin, Payments Controller, User)',
+        'Dynamic quote generation with configurable pricing rules',
+        'Granular person-night-resource tracking for accurate billing',
+        'Comprehensive audit trail for compliance requirements'
       ],
       challenges: [
+        'Designing flexible data model for mixed booking types (residential + day-use)',
+        'Implementing secure one-time customer form links',
+        'Building complex quote calculation engine with seasonal variations',
+        'Handling staggered group arrivals and departures'
       ],
       outcomes: [
+        'Streamlined booking process reducing admin overhead',
+        'Real-time occupancy and availability tracking',
+        'Automated conversion funnel analytics',
+        'Foundation for future customer self-service portal'
       ]
     },
     {
@@ -30,6 +43,7 @@ export class ProjectsData {
       category: ProjectCategory.AI_ML,
       featured: false,
       status: ProjectStatus.Completed,
+      imageUrl: 'images/exhibits/SciKit-Learn.jpg',
       githubUrl: 'https://github.com/pierrerussell/MLProject',
       demoUrl: '/exhibits/ml-forecasting',
       highlights: [
@@ -86,6 +100,24 @@ export class ProjectsData {
       featured: false,
       status: ProjectStatus.InProgress,
       githubUrl: 'https://github.com/pierrerussell/Rust-LOB',
+      highlights: [
+      ],
+      challenges: [
+      ],
+      outcomes: [
+      ]
+    },
+    {
+      id: 5,
+      title: 'Market Strategy Simulator',
+      description: 'Advanced financial analysis platform with historical data visualization and quantitative strategy simulations.',
+      detailedDescription: 'A comprehensive stock market simulator that allows users to search stocks, visualize 2 years of historical price data, and run multiple quantitative trading strategies with detailed risk analysis and potential payoff calculations.',
+      technologies: [TechnologyName.ASPNet, TechnologyName.CSharp, TechnologyName.Azure],
+      category: ProjectCategory.Backend,
+      featured: false,
+      status: ProjectStatus.InProgress,
+      githubUrl: 'https://github.com/pierrerussell/StockSimulation',
+      demoUrl: '/exhibits/stock-simulation',
       highlights: [
       ],
       challenges: [

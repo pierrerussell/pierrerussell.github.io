@@ -5,6 +5,7 @@ import { ExhibitsComponent } from './pages/exhibits/exhibits';
 import { ContactComponent } from './pages/contact/contact';
 import { StockSimulationComponent } from './pages/exhibits/stock-simulation/stock-simulation';
 import { MlForecastingComponent } from './pages/exhibits/ml-forecasting/ml-forecasting';
+import { LaselleComponent } from './pages/exhibits/laselle/laselle';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,7 @@ export const routes: Routes = [
   { path: 'exhibits', component: ExhibitsComponent },
   { path: 'exhibits/stock-simulation', component: StockSimulationComponent },
   { path: 'exhibits/ml-forecasting', component: MlForecastingComponent },
+  { path: 'exhibits/laselle', component: LaselleComponent },
   { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: '' }
 ];

@@ -1,0 +1,383 @@
+<div class="exhibit-container">
+  <!-- Exhibit Header -->
+  <header class="exhibit-header">
+    <div class="project-badge">Production System</div>
+    <h1 class="exhibit-title">Lasalle House Booking System</h1>
+    <p class="exhibit-subtitle">
+      A comprehensive booking management platform built for a not-for-profit retreat house,
+      handling the complete lifecycle from initial enquiry through to post-stay analytics.
+    </p>
+    <div class="header-note">
+      <span class="note-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="16" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+      </span>
+      <span>This project is in active production use. Source code is private to protect organisational data.</span>
+    </div>
+  </header>
+
+  <!-- Project Overview -->
+  <section class="demo-section">
+    <h2>Project Overview</h2>
+    <div class="overview-grid">
+      <div class="overview-card">
+        <h3>The Challenge</h3>
+        <p>
+          A not-for-profit retreat house needed to modernise their booking operations.
+          They were managing residential accommodations, meeting facilities, and meal services
+          using a combination of spreadsheets and paper-based systems. This led to:
+        </p>
+        <ul>
+          <li>Double bookings and scheduling conflicts</li>
+          <li>Inconsistent pricing across similar bookings</li>
+          <li>No visibility into conversion rates or booking trends</li>
+          <li>Difficulty tracking guest requirements and dietary needs</li>
+        </ul>
+      </div>
+      <div class="overview-card">
+        <h3>The Solution</h3>
+        <p>
+          A purpose-built booking system that unifies all aspects of retreat house operations:
+        </p>
+        <ul>
+          <li>Single source of truth for all bookings and enquiries</li>
+          <li>Automated quote generation with configurable pricing rules</li>
+          <li>Real-time availability and occupancy dashboards</li>
+          <li>Secure customer forms for gathering requirements</li>
+          <li>Comprehensive audit trail for compliance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SDLC Process -->
+  <section class="demo-section sdlc-section">
+    <h2>Consulting & Development Process</h2>
+    <p class="section-intro">
+      This project was more than just building software — it involved understanding the organisation's operations,
+      translating business needs into technical solutions, and delivering through a structured, stage-gated approach.
+    </p>
+    <div class="sdlc-timeline">
+      <div class="sdlc-phase" *ngFor="let stage of sdlcStages; let i = index">
+        <div class="phase-marker">
+          <span class="marker-number">{{ i + 1 }}</span>
+          <div class="marker-line" *ngIf="i < sdlcStages.length - 1"></div>
+        </div>
+        <div class="phase-content">
+          <h3>{{ stage.phase }}</h3>
+          <p class="phase-description">{{ stage.description }}</p>
+          <ul class="activities-list">
+            <li *ngFor="let activity of stage.activities">{{ activity }}</li>
+          </ul>
+          <p class="phase-outcome"><strong>Outcome:</strong> {{ stage.outcome }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Workflow -->
+  <section class="demo-section">
+    <h2>Booking Workflow</h2>
+    <p class="section-intro">
+      The system implements a sophisticated multi-phase workflow that guides bookings from initial enquiry
+      through to completion. Each phase contains multiple statuses allowing for granular tracking and analytics.
+    </p>
+    <div class="workflow-container">
+      <div class="workflow-phase" *ngFor="let phase of workflowPhases; let i = index">
+        <div class="phase-header">
+          <span class="phase-number">{{ i + 1 }}</span>
+          <h3>{{ phase.name }}</h3>
+        </div>
+        <p class="phase-description">{{ phase.description }}</p>
+        <div class="status-list">
+          <span class="status-chip" *ngFor="let status of phase.statuses">{{ status }}</span>
+        </div>
+        <div class="phase-connector" *ngIf="i < workflowPhases.length - 1">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16.01 11H4v2h12.01v3L20 12l-3.99-4z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="demo-section">
+    <h2>Key Features</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon" [attr.data-icon]="feature.icon">
+          <ng-container [ngSwitch]="feature.icon">
+            <svg *ngSwitchCase="'calendar'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <svg *ngSwitchCase="'shield'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <svg *ngSwitchCase="'calculator'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="4" y="2" width="16" height="20" rx="2"/>
+              <line x1="8" y1="6" x2="16" y2="6"/>
+              <line x1="8" y1="10" x2="8" y2="10.01"/>
+              <line x1="12" y1="10" x2="12" y2="10.01"/>
+              <line x1="16" y1="10" x2="16" y2="10.01"/>
+              <line x1="8" y1="14" x2="8" y2="14.01"/>
+              <line x1="12" y1="14" x2="12" y2="14.01"/>
+              <line x1="16" y1="14" x2="16" y2="14.01"/>
+              <line x1="8" y1="18" x2="8" y2="18.01"/>
+              <line x1="12" y1="18" x2="16" y2="18"/>
+            </svg>
+            <svg *ngSwitchCase="'tracking'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+            <svg *ngSwitchCase="'audit'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+            <svg *ngSwitchCase="'chart'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </ng-container>
+        </div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="demo-section tech-section">
+    <h2>Technology Stack</h2>
+    <div class="tech-layers">
+      <div class="tech-layer">
+        <h3>Frontend</h3>
+        <div class="tech-items">
+          <div class="tech-item" *ngFor="let tech of techStack | slice:0:2">
+            <h4>{{ tech.name }}</h4>
+            <p>{{ tech.purpose }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="tech-layer">
+        <h3>Backend</h3>
+        <div class="tech-items">
+          <div class="tech-item" *ngFor="let tech of techStack | slice:2:5">
+            <h4>{{ tech.name }}</h4>
+            <p>{{ tech.purpose }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="tech-layer">
+        <h3>Data & Hosting</h3>
+        <div class="tech-items">
+          <div class="tech-item" *ngFor="let tech of techStack | slice:5:8">
+            <h4>{{ tech.name }}</h4>
+            <p>{{ tech.purpose }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Infrastructure & Administration -->
+  <section class="demo-section">
+    <h2>Infrastructure & Administration</h2>
+    <p class="section-intro">
+      Beyond application development, this project involved setting up the organisation's cloud infrastructure
+      and productivity tools from the ground up.
+    </p>
+    <div class="infrastructure-grid">
+      <div class="infrastructure-card" *ngFor="let item of infrastructureWork">
+        <div class="infra-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture Decisions -->
+  <section class="demo-section">
+    <h2>Key Architecture Decisions</h2>
+    <div class="decisions-grid">
+      <div class="decision-card">
+        <h3>Clean Architecture</h3>
+        <p>
+          The backend follows clean architecture principles with separate layers for Domain,
+          Application, and Infrastructure. This enables easy testing and future modifications
+          without affecting the core business logic.
+        </p>
+      </div>
+      <div class="decision-card">
+        <h3>Event-Driven Status Changes</h3>
+        <p>
+          Booking status transitions trigger domain events that automatically handle side effects
+          like sending emails, updating analytics, and creating audit entries. This keeps the
+          core booking logic clean and predictable.
+        </p>
+      </div>
+      <div class="decision-card">
+        <h3>Secure One-Time Links</h3>
+        <p>
+          Customer form links use cryptographically secure tokens with configurable expiry.
+          This allows external data collection without requiring customer accounts, reducing
+          friction in the booking process.
+        </p>
+      </div>
+      <div class="decision-card">
+        <h3>Comprehensive Audit Trail</h3>
+        <p>
+          All data changes are logged with before/after values, user context, and timestamps.
+          Audit logs are append-only and cannot be modified or deleted, ensuring compliance
+          with organisational requirements.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Challenges & Solutions -->
+  <section class="demo-section">
+    <h2>Challenges & Solutions</h2>
+    <div class="challenges-container">
+      <div class="challenge-item">
+        <div class="challenge">
+          <h4>Challenge</h4>
+          <p>Mixed booking types: Some guests stay overnight with meals, others attend day events only</p>
+        </div>
+        <div class="solution">
+          <h4>Solution</h4>
+          <p>
+            Flexible data model where room assignments and meal selections are independent entities.
+            A booking can have any combination of rooms, meeting spaces, and meals without rigid packages.
+          </p>
+        </div>
+      </div>
+      <div class="challenge-item">
+        <div class="challenge">
+          <h4>Challenge</h4>
+          <p>Staggered group arrivals: Group members may arrive on different dates</p>
+        </div>
+        <div class="solution">
+          <h4>Solution</h4>
+          <p>
+            Guest records have individual arrival/departure dates separate from the booking dates.
+            Room assignments are tracked per-night, allowing guests to move rooms during their stay.
+          </p>
+        </div>
+      </div>
+      <div class="challenge-item">
+        <div class="challenge">
+          <h4>Challenge</h4>
+          <p>Complex pricing with seasonal rates, group discounts, and custom adjustments</p>
+        </div>
+        <div class="solution">
+          <h4>Solution</h4>
+          <p>
+            Rule-based quote engine with configurable rate tables. Payments Controllers can override
+            calculated prices while maintaining full audit trail of all quote versions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact -->
+  <section class="demo-section impact-section">
+    <h2>Project Impact</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3>Reduced Admin Time</h3>
+        <p>Automated quote generation and status tracking eliminates manual spreadsheet work</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+            <polyline points="22 4 12 14.01 9 11.01"/>
+          </svg>
+        </div>
+        <h3>Zero Double Bookings</h3>
+        <p>Real-time availability checks prevent scheduling conflicts</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="12" y1="20" x2="12" y2="10"/>
+            <line x1="18" y1="20" x2="18" y2="4"/>
+            <line x1="6" y1="20" x2="6" y2="16"/>
+          </svg>
+        </div>
+        <h3>Data-Driven Decisions</h3>
+        <p>Conversion analytics reveal where enquiries drop off, enabling process improvements</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3>Improved Guest Experience</h3>
+        <p>Staff can instantly access guest requirements and dietary needs</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Access & Contact -->
+  <section class="demo-section access-section">
+    <h2>See It In Action</h2>
+    <div class="access-container">
+      <div class="access-card">
+        <div class="access-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+          </svg>
+        </div>
+        <h3>Staff-Only Access</h3>
+        <p>
+          The booking system is a private internal tool for Lasalle House staff. While a live demo isn't available,
+          you can visit <a href="https://booking.lasallehouse.com" target="_blank" rel="noopener">booking.lasallehouse.com</a>
+          to see the Microsoft Entra ID login page — evidence of the identity provider integration in production.
+        </p>
+      </div>
+      <div class="access-card contact-card">
+        <div class="access-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+            <polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <h3>Interested in Booking a Retreat?</h3>
+        <p>
+          If you're interested in booking a stay or event at Lasalle House, please contact them directly at
+          <a href="mailto:lasalle.house@lasalle.sg">lasalle.house&#64;lasalle.sg</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
