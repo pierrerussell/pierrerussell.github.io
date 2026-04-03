@@ -1,30 +1,24 @@
-<section class="exhibits-hero">
+<section class="projects-page">
   <div class="container">
-    <div class="section-header">
-      <span class="section-label">Exhibits</span>
-      <h1>Browse the Collection</h1>
-      <p class="hero-description">Explore a curated collection of interactive experiences</p>
+    <div class="page-header">
+      <span class="page-label">Portfolio</span>
+      <h1>Projects</h1>
+      <p class="page-description">A collection of things I've built</p>
     </div>
-  </div>
-</section>
 
-<section class="exhibits-gallery">
-  <div class="container">
-    <div class="gallery-controls">
-      <div class="filter-buttons">
-        <button
-          *ngFor="let category of categories"
-          [class.active]="selectedCategory === category"
-          (click)="filterByCategory(category)"
-          class="filter-btn">
-          {{ category === 'all' ? 'All Exhibits' : category }}
-        </button>
-      </div>
+    <div class="filter-bar">
+      <button
+        *ngFor="let category of categories"
+        [class.active]="selectedCategory === category"
+        (click)="filterByCategory(category)"
+        class="filter-btn">
+        {{ category === 'all' ? 'All' : category }}
+      </button>
     </div>
 
     <app-exhibits-list
       [projects]="filteredProjects"
-      [emptyMessage]="'No exhibits found in the ' + selectedCategory + ' category.'">
+      [emptyMessage]="'No projects found in ' + selectedCategory + ' category.'">
     </app-exhibits-list>
   </div>
 </section>

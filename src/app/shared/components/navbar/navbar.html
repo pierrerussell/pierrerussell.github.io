@@ -1,11 +1,14 @@
 <nav class="navbar">
   <div class="container">
     <div class="nav-content">
-      <a routerLink="/" class="nav-brand" (click)="trackNavClick('home')">Pierre's Gallery</a>
+      <a routerLink="/" class="nav-brand" (click)="trackNavClick('home')">
+        <span class="brand-name">Pierre</span>
+        <span class="brand-dot">.dev</span>
+      </a>
       <div class="nav-links">
-        <a routerLink="/exhibits" routerLinkActive="active" class="nav-link" (click)="trackNavClick('exhibits')">Exhibits</a>
-        <a routerLink="/about" routerLinkActive="active" class="nav-link" (click)="trackNavClick('about')">About the Artist</a>
-        <a routerLink="/contact" routerLinkActive="active" class="nav-link" (click)="trackNavClick('contact')">Guest Book</a>
+        <a routerLink="/projects" routerLinkActive="active" class="nav-link" (click)="trackNavClick('projects')">Projects</a>
+        <a routerLink="/about" routerLinkActive="active" class="nav-link" (click)="trackNavClick('about')">About</a>
+        <a routerLink="/contact" routerLinkActive="active" class="nav-link" (click)="trackNavClick('contact')">Contact</a>
       </div>
     </div>
   </div>

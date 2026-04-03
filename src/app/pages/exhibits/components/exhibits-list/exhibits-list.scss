@@ -7,12 +7,15 @@
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-  gap: $space-2xl;
-  
-  @include tablet {
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-md;
+
+  @media (max-width: $tablet) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $mobile) {
     grid-template-columns: 1fr;
-    gap: $space-xl;
   }
 }
 
@@ -27,13 +30,15 @@
   justify-content: center;
   width: 80px;
   height: 80px;
-  background: $gallery-gray;
-  border-radius: 50%;
+  background: $bg-secondary;
+  border: 1px solid $border-color;
+  border-radius: $radius-md;
   margin-bottom: $space-xl;
   color: $text-light;
 }
 
 .empty-message {
-  @include body-text('large');
+  font-size: $text-body-lg;
+  line-height: $line-body-lg;
   color: $text-secondary;
 }

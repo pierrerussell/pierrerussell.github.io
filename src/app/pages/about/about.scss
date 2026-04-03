@@ -1,138 +1,175 @@
 @use '../../shared/styles/variables' as *;
 @use '../../shared/styles/mixins' as *;
 
-.about-hero {
-  padding: $space-3xl 0 $space-2xl;
-  background: linear-gradient(135deg, $museum-white 0%, $gallery-gray 100%);
+.about-page {
+  min-height: calc(100dvh - $navbar-height);
+  background: $bg-primary;
+  padding: $space-2xl 0;
 }
 
-.about-content {
-  padding: $space-3xl 0;
-  background: $gallery-gray;
-}
-
-.content-grid {
+.about-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: $space-3xl;
-  
+  grid-template-columns: 2fr 1fr;
+  gap: $space-md;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 $space-lg;
+
   @include tablet {
     grid-template-columns: 1fr;
   }
 }
 
-.artist-info {
-  h2 {
-    @include h2;
-    color: $gold-frame;
-    margin-bottom: $space-md;
-  }
-  
-  .lead {
-    @include body-text('large');
-    color: $text-secondary;
-    margin-bottom: $space-2xl;
+.bento-card {
+  @include bento-card;
+  animation: fadeInUp 0.5s ease-out backwards;
+
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
   }
 }
 
-.info-section {
-  margin-bottom: $space-2xl;
-  
-  h3 {
-    @include h3;
-    margin-bottom: $space-md;
-  }
-  
-  p {
-    @include body-text;
-    color: $text-secondary;
-  }
+.card-label {
+  font-size: $text-caption;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $accent-primary;
+  font-weight: 600;
+  margin-bottom: $space-sm;
+  display: block;
 }
 
-.skills-showcase {
-  background: $museum-white;
+// Main intro card
+.about-intro {
+  grid-row: span 4;
   padding: $space-2xl;
-  border-radius: $radius-md;
-  box-shadow: $shadow-md;
-  
-  h3 {
-    @include h3;
-    margin-bottom: $space-xl;
-  }
-}
 
-.skill-categories {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: $space-xl;
-  
-  @include mobile {
-    grid-template-columns: 1fr;
+  h1 {
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: $space-lg;
   }
-}
 
-.skill-category {
-  h4 {
-    font-size: $text-body;
-    font-weight: 600;
-    color: $gold-frame;
-    margin-bottom: $space-md;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-}
-
-.skill-list {
-  list-style: none;
-  
-  li {
-    padding: $space-sm 0;
+  .intro-text {
+    font-size: $text-body-lg;
     color: $text-secondary;
-    border-bottom: 1px solid $gallery-gray;
-    
-    &:last-child {
-      border-bottom: none;
+    line-height: 1.7;
+  }
+
+  .intro-quote {
+    font-size: $text-body-lg;
+    color: $text-primary;
+    font-style: italic;
+    line-height: 1.7;
+    margin: $space-md 0;
+    padding-left: $space-lg;
+    border-left: 3px solid $accent-primary;
+  }
+}
+
+// Skill cards
+.skill-card {
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-sm;
+    margin-top: $space-md;
+  }
+
+  .skill-item {
+    background: $accent-soft;
+    padding: $space-xs $space-md;
+    border-radius: $radius-sm;
+    font-size: $text-body-sm;
+    color: $text-primary;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: $bg-secondary;
+      border-color: $accent-primary;
+      color: $accent-secondary;
     }
   }
 }
 
-.construction-zone {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 400px;
+// Learning card
+.learning-card {
+  .learning-items {
+    display: flex;
+    flex-direction: column;
+    gap: $space-sm;
+    margin-top: $space-md;
+  }
+
+  .learning-item {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    color: $text-secondary;
+    padding: $space-xs $space-sm;
+    border-radius: $radius-sm;
+    transition: all 0.2s ease;
+
+    &::before {
+      content: '→';
+      color: $accent-primary;
+    }
+
+    &:hover {
+      background: $accent-soft;
+      color: $text-primary;
+    }
+  }
 }
 
-.construction-graphic {
-  text-align: center;
-  
-  .construction-icon {
-    width: 150px;
-    height: 150px;
-    margin-bottom: $space-xl;
-    animation: pulse 3s ease-in-out infinite;
+// Location card
+.location-card {
+  p {
+    font-size: $text-body-lg;
+    color: $text-primary;
+    margin: $space-md 0;
   }
-  
-  .construction-text {
-    h2 {
-      @include h2;
+
+  .status-row {
+    display: flex;
+    align-items: center;
+    gap: $space-sm;
+    margin-top: auto;
+    background: $accent-soft;
+    padding: $space-sm $space-md;
+    border-radius: $radius-sm;
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: $success;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    span {
       color: $text-secondary;
-      margin-bottom: $space-md;
+      font-size: $text-body-sm;
     }
-    
-    p {
-      @include body-text('large');
-      color: $text-light;
-      font-style: italic;
-    }
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
 @keyframes pulse {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }

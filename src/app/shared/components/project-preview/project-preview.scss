@@ -3,39 +3,27 @@
 
 .project-preview {
   height: 100%;
-  
+
   &.featured {
     .preview-frame {
-      border: 2px solid $gold-frame;
+      border-color: $accent-primary;
     }
   }
 }
 
 .preview-frame {
-  background: $museum-white;
-  border: 2px solid $gallery-gray;
-  border-radius: $radius-md;
+  @include bento-card;
   overflow: hidden;
   height: 100%;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
-  
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: $shadow-lg;
-    
-    .preview-overlay {
-      opacity: 1;
-    }
-  }
 }
 
 .preview-image {
   position: relative;
-  height: 200px;
+  height: 180px;
   overflow: hidden;
-  background: $charcoal;
+  background: $bg-tertiary;
 }
 
 .image-placeholder {
@@ -44,24 +32,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, $charcoal 0%, lighten($charcoal, 10%) 100%);
+  background: linear-gradient(135deg, $bg-tertiary 0%, $bg-secondary 100%);
 }
 
 .placeholder-content {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: rgba($gallery-gray, 0.1);
+  background: $bg-primary;
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   .placeholder-icon {
-    font-size: 36px;
+    font-size: 24px;
     font-weight: 700;
-    color: $gallery-gray;
-    opacity: 0.3;
-    font-family: $font-display;
+    color: $text-muted;
   }
 }
 
@@ -71,12 +57,16 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba($charcoal, 0.9);
+  background: rgba($bg-primary, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+.preview-frame:hover .preview-overlay {
+  opacity: 1;
 }
 
 .view-project {
@@ -85,7 +75,7 @@
 }
 
 .preview-info {
-  padding: $space-xl;
+  padding: $space-lg;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -114,11 +104,4 @@
   gap: $space-sm;
   flex-wrap: wrap;
   align-items: center;
-}
-
-
-.tech-more {
-  font-size: $text-caption;
-  color: $text-light;
-  font-weight: 500;
 }

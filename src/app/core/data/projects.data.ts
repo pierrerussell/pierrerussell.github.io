@@ -8,12 +8,12 @@ export class ProjectsData {
       title: 'Lasalle House Booking System',
       description: 'Enterprise booking management system for a not-for-profit retreat house, handling residential accommodations, meeting facilities, and guest services.',
       detailedDescription: 'A comprehensive full-stack booking system built for a not-for-profit organisation managing retreat house operations. The system handles the complete booking lifecycle from initial enquiry through to post-stay analytics, featuring role-based access control, dynamic quote generation, and integrated meal planning.',
-      technologies: [TechnologyName.Angular, TechnologyName.TypeScript, TechnologyName.ASPNet, TechnologyName.CSharp, TechnologyName.Azure],
+      technologies: [TechnologyName.Angular, TechnologyName.TypeScript, TechnologyName.ASPNet, TechnologyName.CSharp, TechnologyName.Azure, TechnologyName.GitHub],
       category: ProjectCategory.FullStack,
       featured: true,
       status: ProjectStatus.Completed,
       imageUrl: 'images/exhibits/LasalleHouse.jpg',
-      demoUrl: '/exhibits/laselle',
+      demoUrl: '/projects/laselle',
       highlights: [
         'Multi-phase booking workflow with 15+ distinct statuses',
         'Role-based access control (Super Admin, Admin, Payments Controller, User)',
@@ -45,7 +45,7 @@ export class ProjectsData {
       status: ProjectStatus.Completed,
       imageUrl: 'images/exhibits/SciKit-Learn.jpg',
       githubUrl: 'https://github.com/pierrerussell/MLProject',
-      demoUrl: '/exhibits/ml-forecasting',
+      demoUrl: '/projects/ml-forecasting',
       highlights: [
         'Dual ML model comparison (Linear Regression & Random Forest)',
         'Real-time financial data integration via FMP API',
@@ -65,19 +65,19 @@ export class ProjectsData {
     },
     {
       id: 3,
-      title: 'Digital Museum Portfolio',
-      description: 'A creative portfolio website showcasing software engineering projects with an immersive museum experience.',
-      detailedDescription: 'An Angular-powered portfolio that reimagines the traditional developer portfolio as an interactive digital museum. Features include typewriter animations, project exhibits, and a unique visual design that helps developers stand out to recruiters.',
-      technologies: [TechnologyName.Git, TechnologyName.Git, TechnologyName.Angular, TechnologyName.TypeScript, TechnologyName.GitHub],
+      title: 'Developer Portfolio',
+      description: 'A modern bento-style portfolio website showcasing software engineering projects with elegant animations.',
+      detailedDescription: 'An Angular-powered portfolio featuring a modern bento grid layout, dark theme, and smooth animations. Built to showcase projects in a clean, professional manner that helps developers stand out to recruiters.',
+      technologies: [TechnologyName.Git, TechnologyName.Angular, TechnologyName.TypeScript, TechnologyName.GitHub],
       category: ProjectCategory.Frontend,
       featured: false,
       status: ProjectStatus.InProgress,
       githubUrl: 'https://github.com/pierrerussell/pierrerussell.github.io',
       highlights: [
-        'Unique museum-themed design metaphor',
+        'Modern bento grid layout design',
         'Smooth typewriter animations with random property display',
         'Technology showcase with interactive logo badges',
-        'Responsive design for all devices'
+        'Responsive dark theme for all devices'
       ],
       challenges: [
         'Implementing performant typewriter animations',
@@ -87,7 +87,7 @@ export class ProjectsData {
       outcomes: [
         'Stand-out portfolio for recruiter engagement',
         'Clean, maintainable Angular codebase',
-        'Creative approach to developer branding'
+        'Modern approach to developer branding'
       ]
     },
     {
@@ -117,7 +117,7 @@ export class ProjectsData {
       featured: false,
       status: ProjectStatus.InProgress,
       githubUrl: 'https://github.com/pierrerussell/StockSimulation',
-      demoUrl: '/exhibits/stock-simulation',
+      demoUrl: '/projects/stock-simulation',
       highlights: [
       ],
       challenges: [

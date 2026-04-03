@@ -4,7 +4,7 @@
 }
 
 .constraints-panel {
-  background: $gallery-gray;
+  background: $bg-tertiary;
   padding: $space-md;
   border-radius: $radius-sm;
   
@@ -26,9 +26,9 @@
       @include body-text('small');
       margin-left: $space-sm;
       padding: $space-xs;
-      border: 1px solid darken($gallery-gray, 10%);
+      border: 1px solid darken($bg-tertiary, 10%);
       border-radius: $radius-sm;
-      background: $museum-white;
+      background: $bg-secondary;
     }
   }
 }
@@ -36,7 +36,7 @@
 .portfolio-metrics {
   margin-top: $space-lg;
   padding-top: $space-lg;
-  border-top: 2px solid $gallery-gray;
+  border-top: 2px solid $bg-tertiary;
   
   .metric-row {
     @include body-text();
@@ -89,7 +89,7 @@
 }
 
 .correlation-panel {
-  @include museum-card;
+  @include bento-card;
   flex: 1.5;
   
   h3 {
@@ -97,12 +97,12 @@
     font-size: $text-body-lg;
     margin-bottom: $space-lg;
     padding-bottom: $space-md;
-    border-bottom: 2px solid $gallery-gray;
+    border-bottom: 2px solid $bg-tertiary;
   }
 }
 
 .heatmap-placeholder {
-  background: $gallery-gray;
+  background: $bg-tertiary;
   padding: $space-lg;
   border-radius: $radius-sm;
   text-align: center;
@@ -144,13 +144,13 @@
       }
       
       &.medium {
-        background: rgba($gold-frame, 0.3);
-        color: darken($gold-frame, 20%);
+        background: rgba($accent-primary, 0.3);
+        color: darken($accent-primary, 20%);
       }
       
       &.low {
-        background: rgba($deep-navy, 0.1);
-        color: $deep-navy;
+        background: rgba($accent-secondary, 0.1);
+        color: $accent-secondary;
       }
     }
   }
@@ -177,7 +177,7 @@
 }
 
 .risk-attribution-panel {
-  @include museum-card;
+  @include bento-card;
   flex: 1;
   
   h3 {
@@ -185,7 +185,7 @@
     font-size: $text-body-lg;
     margin-bottom: $space-lg;
     padding-bottom: $space-md;
-    border-bottom: 2px solid $gallery-gray;
+    border-bottom: 2px solid $bg-tertiary;
   }
   
   h4 {
@@ -218,7 +218,7 @@
       
       .risk-bar {
         height: 24px;
-        background: linear-gradient(90deg, $gold-frame 0%, darken($gold-frame, 10%) 100%);
+        background: linear-gradient(90deg, $accent-primary 0%, darken($accent-primary, 10%) 100%);
         border-radius: $radius-sm;
         transition: width 0.3s ease;
       }
@@ -233,7 +233,7 @@
 }
 
 .factor-risks {
-  background: $gallery-gray;
+  background: $bg-tertiary;
   padding: $space-md;
   border-radius: $radius-sm;
   
@@ -249,7 +249,7 @@
     
     .factor-value {
       font-weight: 600;
-      color: $charcoal;
+      color: $text-primary;
     }
   }
 }

@@ -3,9 +3,10 @@
 
 .exhibit-container {
   @include container;
+  max-width: 1200px;
   padding-top: $space-3xl;
   padding-bottom: $space-3xl;
-  background: $museum-white;
+  background: $bg-primary;
 }
 
 .exhibit-header {
@@ -45,7 +46,7 @@
 .demo-section {
   margin-bottom: $space-3xl;
   padding: $space-xl;
-  background: $gallery-gray;
+  background: $bg-tertiary;
   border-radius: $radius-md;
 
   h2 {
@@ -69,7 +70,7 @@
 }
 
 .flow-step {
-  @include museum-card;
+  @include bento-card;
   text-align: center;
   padding: $space-lg;
   min-width: 180px;
@@ -79,8 +80,8 @@
   .step-icon {
     width: 40px;
     height: 40px;
-    background: $charcoal;
-    color: $museum-white;
+    background: $bg-primary;
+    color: $accent-primary;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -103,7 +104,7 @@
 
 .flow-arrow {
   @include h2;
-  color: $gold-frame;
+  color: $accent-primary;
 
   @include tablet {
     transform: rotate(90deg);
@@ -121,7 +122,7 @@
   }
 
   .demo-panel {
-    @include museum-card;
+    @include bento-card;
     flex: 1;
     min-width: 280px;
 
@@ -130,7 +131,7 @@
       font-size: $text-body-lg;
       margin-bottom: $space-lg;
       padding-bottom: $space-md;
-      border-bottom: 2px solid $gallery-gray;
+      border-bottom: 2px solid $bg-tertiary;
     }
 
     &.chart-panel {
@@ -162,14 +163,14 @@
     @include body-text();
     width: 100%;
     padding: $space-sm $space-md;
-    border: 2px solid $gallery-gray;
+    border: 2px solid $bg-tertiary;
     border-radius: $radius-sm;
-    background: $museum-white;
+    background: $bg-secondary;
     cursor: pointer;
 
     &:focus {
       outline: none;
-      border-color: $gold-frame;
+      border-color: $accent-primary;
     }
   }
 
@@ -268,7 +269,7 @@
     display: flex;
     justify-content: space-between;
     padding: $space-sm 0;
-    border-bottom: 1px solid $gallery-gray;
+    border-bottom: 1px solid $bg-tertiary;
 
     &:last-child {
       border-bottom: none;
@@ -297,12 +298,12 @@
 }
 
 .model-card {
-  @include museum-card;
+  @include bento-card;
   border: 2px solid transparent;
 
   &.featured {
-    border-color: $gold-frame;
-    box-shadow: 0 4px 20px rgba($gold-frame, 0.15);
+    border-color: $accent-primary;
+    box-shadow: 0 4px 20px rgba($accent-primary, 0.15);
   }
 
   .model-header {
@@ -311,7 +312,7 @@
     align-items: center;
     padding-bottom: $space-md;
     margin-bottom: $space-lg;
-    border-bottom: 2px solid $gallery-gray;
+    border-bottom: 2px solid $bg-tertiary;
 
     h3 {
       @include h3;
@@ -325,12 +326,12 @@
       @include body-text('small');
       padding: $space-xs $space-md;
       border-radius: 20px;
-      background: $gallery-gray;
+      background: $bg-tertiary;
       color: $text-secondary;
 
       &.winner {
-        background: $gold-frame;
-        color: $charcoal;
+        background: $accent-primary;
+        color: $bg-primary;
         font-weight: 600;
       }
     }
@@ -345,7 +346,7 @@
     .metric-item {
       text-align: center;
       padding: $space-md;
-      background: $gallery-gray;
+      background: $bg-tertiary;
       border-radius: $radius-sm;
 
       .metric-label {
@@ -387,7 +388,7 @@
 
 // Feature Importance
 .feature-panel {
-  @include museum-card;
+  @include bento-card;
   flex: 1;
 
   h3 {
@@ -395,7 +396,7 @@
     font-size: $text-body-lg;
     margin-bottom: $space-md;
     padding-bottom: $space-md;
-    border-bottom: 2px solid $gallery-gray;
+    border-bottom: 2px solid $bg-tertiary;
   }
 
   .feature-description {
@@ -428,7 +429,7 @@
 
     .feature-bar {
       height: 24px;
-      background: linear-gradient(90deg, $gold-frame, darken($gold-frame, 10%));
+      background: linear-gradient(90deg, $accent-primary, darken($accent-primary, 10%));
       border-radius: $radius-sm;
       transition: width 0.3s ease;
     }
@@ -442,7 +443,7 @@
 }
 
 .technical-indicators-panel {
-  @include museum-card;
+  @include bento-card;
   flex: 1;
 
   h3 {
@@ -450,7 +451,7 @@
     font-size: $text-body-lg;
     margin-bottom: $space-lg;
     padding-bottom: $space-md;
-    border-bottom: 2px solid $gallery-gray;
+    border-bottom: 2px solid $bg-tertiary;
   }
 
   .indicators-grid {
@@ -465,7 +466,7 @@
 
   .indicator-card {
     padding: $space-md;
-    background: $gallery-gray;
+    background: $bg-tertiary;
     border-radius: $radius-sm;
 
     h4 {
@@ -493,7 +494,7 @@
 }
 
 .endpoint-card {
-  @include museum-card;
+  @include bento-card;
 
   .endpoint-header {
     display: flex;
@@ -533,13 +534,13 @@
   }
 
   .endpoint-example {
-    background: $charcoal;
+    background: $bg-primary;
     padding: $space-md;
     border-radius: $radius-sm;
 
     .example-label {
       @include body-text('small');
-      color: $text-secondary;
+      color: $text-primary;
       display: block;
       margin-bottom: $space-xs;
     }
@@ -547,7 +548,7 @@
     code {
       @include body-text('small');
       font-family: monospace;
-      color: $museum-white;
+      color: $accent-primary;
       word-break: break-all;
     }
   }
@@ -570,14 +571,14 @@
   }
 
   .tech-item {
-    @include museum-card;
+    @include bento-card;
     text-align: center;
 
     h4 {
       @include body-text();
       font-weight: 700;
       margin-bottom: $space-sm;
-      color: $charcoal;
+      color: $text-primary;
     }
 
     p {

@@ -1,18 +1,25 @@
-// Museum Color Palette
-$museum-white: #FAFAFA;
-$gallery-gray: #F5F5F5;
-$charcoal: #1A1A1A;
-$gold-frame: #D4AF37;
-$deep-navy: #2C3E50;
+// Soft Blue Pastel Color Palette
+$bg-primary: #f0f9ff;           // Very light blue page background
+$bg-secondary: #e0f2fe;         // Soft sky blue for cards
+$bg-tertiary: #d4edfc;          // Soft blue for sections/hover
+$border-color: #e2e8f0;         // Light gray border
+$border-subtle: #f1f5f9;        // Very subtle border
+
+// Accent Colors
+$accent-primary: #0ea5e9;       // Sky blue
+$accent-secondary: #0284c7;     // Deeper blue
+$accent-gradient: linear-gradient(135deg, $accent-primary 0%, $accent-secondary 100%);
+$accent-soft: #e0f2fe;          // Soft blue background
 
 // Text Colors
-$text-primary: #333333;
-$text-secondary: #666666;
-$text-light: #999999;
+$text-primary: #0f172a;         // Dark slate for primary text
+$text-secondary: #64748b;       // Slate gray for secondary
+$text-muted: #94a3b8;           // Light slate for muted
+$text-light: #94a3b8;
 
 // Status Colors
-$success: #4CAF50;
-$error: #F44336;
+$success: #10b981;
+$error: #f43f5e;
 
 // Spacing System (8px grid)
 $space-xs: 4px;
@@ -24,7 +31,7 @@ $space-2xl: 48px;
 $space-3xl: 64px;
 
 // Typography
-$font-display: 'Playfair Display', Georgia, serif;
+$font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 $font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
 // Font Sizes
@@ -45,15 +52,22 @@ $line-body: 24px;
 $line-body-sm: 20px;
 $line-caption: 16px;
 
-// Components
-$radius-sm: 4px;
-$radius-md: 8px;
-$shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-$shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+// Components - Bento Style Radius
+$radius-sm: 8px;
+$radius-md: 12px;
+$radius-lg: 16px;
+$radius-xl: 24px;
+
+// Shadows for Light Theme
+$shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
 
 // Breakpoints
 $mobile: 480px;
 $tablet: 768px;
 $desktop: 1024px;
 $wide: 1440px;
+
+// Layout
+$navbar-height: 61px;

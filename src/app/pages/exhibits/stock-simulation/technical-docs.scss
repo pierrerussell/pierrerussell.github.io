@@ -26,7 +26,7 @@
     font-size: $text-body-lg;
     margin-bottom: $space-lg;
     padding-bottom: $space-md;
-    border-bottom: 2px solid $gallery-gray;
+    border-bottom: 2px solid $bg-tertiary;
   }
   
   .docs-menu {
@@ -47,15 +47,15 @@
       transition: all 0.2s ease;
       
       &:hover {
-        background: $gallery-gray;
-        color: $charcoal;
+        background: $bg-tertiary;
+        color: $bg-primary;
       }
       
       &.active {
-        background: $gallery-gray;
-        color: $charcoal;
+        background: $bg-tertiary;
+        color: $bg-primary;
         font-weight: 600;
-        border-left: 3px solid $gold-frame;
+        border-left: 3px solid $accent-primary;
       }
     }
   }
@@ -100,8 +100,8 @@
   margin: $space-xl 0;
   
   pre.diagram {
-    background: $gallery-gray;
-    border: 2px solid darken($gallery-gray, 5%);
+    background: $bg-tertiary;
+    border: 2px solid darken($bg-tertiary, 5%);
     border-radius: $radius-md;
     padding: $space-xl;
     font-family: 'Monaco', 'Courier New', monospace;
@@ -113,11 +113,11 @@
 
 .principle-card,
 .code-example {
-  @include museum-card;
+  @include bento-card;
   margin-bottom: $space-lg;
   
   h4 {
-    color: $deep-navy;
+    color: $accent-secondary;
     margin-bottom: $space-md;
   }
   
@@ -131,7 +131,7 @@
   @include body-text('small');
   font-family: 'Monaco', 'Courier New', monospace;
   color: $text-secondary;
-  background: $gallery-gray;
+  background: $bg-tertiary;
   padding: $space-xs $space-sm;
   border-radius: $radius-sm;
   margin-bottom: $space-sm;
@@ -143,7 +143,7 @@ pre {
   
   code {
     display: block;
-    background: $charcoal;
+    background: $bg-primary;
     color: #f8f8f2;
     padding: $space-lg;
     border-radius: $radius-sm;
@@ -164,14 +164,14 @@ pre {
 }
 
 .design-note {
-  background: rgba($gold-frame, 0.1);
-  border: 2px solid rgba($gold-frame, 0.3);
+  background: rgba($accent-primary, 0.1);
+  border: 2px solid rgba($accent-primary, 0.3);
   border-radius: $radius-md;
   padding: $space-lg;
   margin: $space-xl 0;
   
   h4 {
-    color: darken($gold-frame, 20%);
+    color: darken($accent-primary, 20%);
     margin-bottom: $space-md;
   }
   
@@ -181,7 +181,7 @@ pre {
 }
 
 .math-explanation {
-  background: $gallery-gray;
+  background: $bg-tertiary;
   padding: $space-xl;
   border-radius: $radius-md;
   margin: $space-xl 0;
@@ -194,18 +194,18 @@ pre {
     font-family: 'Georgia', serif;
     font-size: $text-body-lg;
     margin: $space-lg 0;
-    border: 1px solid darken($gallery-gray, 10%);
+    border: 1px solid darken($bg-tertiary, 10%);
   }
 }
 
 .challenge-card {
-  @include museum-card;
+  @include bento-card;
   margin-bottom: $space-xl;
   
   h4 {
     @include body-text('large');
     font-weight: 600;
-    color: $deep-navy;
+    color: $accent-secondary;
     margin-bottom: $space-md;
   }
   
@@ -227,7 +227,7 @@ pre {
 }
 
 .lessons-box {
-  background: $gallery-gray;
+  background: $bg-tertiary;
   border-radius: $radius-md;
   padding: $space-xl;
   margin-top: $space-xl;
@@ -246,7 +246,7 @@ pre {
       margin-bottom: $space-md;
       
       strong {
-        color: $charcoal;
+        color: $bg-primary;
       }
     }
   }

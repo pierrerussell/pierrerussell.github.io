@@ -13,14 +13,17 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   @include body-text();
   color: $text-primary;
-  background-color: $gallery-gray;
+  background-color: $bg-primary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -40,12 +43,12 @@ p {
 }
 
 a {
-  color: $deep-navy;
+  color: $text-secondary;
   text-decoration: none;
   transition: color 0.2s ease;
 
   &:hover {
-    color: $gold-frame;
+    color: $accent-primary;
   }
 }
 

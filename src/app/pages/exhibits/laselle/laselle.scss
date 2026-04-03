@@ -3,9 +3,10 @@
 
 .exhibit-container {
   @include container;
+  max-width: 1200px;
   padding-top: $space-3xl;
   padding-bottom: $space-3xl;
-  background: $museum-white;
+  background: $bg-primary;
 }
 
 .exhibit-header {
@@ -17,8 +18,8 @@
     @include body-text('small');
     font-weight: 600;
     padding: $space-xs $space-md;
-    background: linear-gradient(135deg, $deep-navy, lighten($deep-navy, 10%));
-    color: $museum-white;
+    background: linear-gradient(135deg, $accent-secondary, lighten($accent-secondary, 10%));
+    color: $bg-secondary;
     border-radius: 20px;
     margin-bottom: $space-lg;
     text-transform: uppercase;
@@ -46,9 +47,9 @@
     @include body-text('small');
     color: $text-secondary;
     padding: $space-md $space-lg;
-    background: $gallery-gray;
+    background: $bg-tertiary;
     border-radius: $radius-md;
-    border-left: 3px solid $gold-frame;
+    border-left: 3px solid $accent-primary;
 
     .note-icon {
       display: flex;
@@ -61,7 +62,7 @@
       svg {
         width: 100%;
         height: 100%;
-        color: $gold-frame;
+        color: $accent-primary;
       }
     }
   }
@@ -70,7 +71,7 @@
 .demo-section {
   margin-bottom: $space-3xl;
   padding: $space-xl;
-  background: $gallery-gray;
+  background: $bg-tertiary;
   border-radius: $radius-md;
 
   h2 {
@@ -104,14 +105,14 @@
 }
 
 .overview-card {
-  @include museum-card;
+  @include bento-card;
 
   h3 {
     @include h3;
     font-size: $text-body-lg;
     margin-bottom: $space-md;
     padding-bottom: $space-md;
-    border-bottom: 2px solid $gallery-gray;
+    border-bottom: 2px solid $bg-tertiary;
   }
 
   p {
@@ -130,7 +131,7 @@
       margin-bottom: $space-sm;
 
       &::marker {
-        color: $gold-frame;
+        color: $accent-primary;
       }
     }
   }
@@ -141,16 +142,21 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: $space-lg;
+  gap: $space-md;
 }
 
 .workflow-phase {
-  @include museum-card;
+  @include bento-card;
   flex: 1;
-  min-width: 200px;
-  max-width: 280px;
+  min-width: 160px;
+  max-width: 240px;
   position: relative;
   text-align: center;
+
+  @include tablet {
+    min-width: 140px;
+    max-width: none;
+  }
 
   @include mobile {
     min-width: 100%;
@@ -167,8 +173,8 @@
     .phase-number {
       width: 40px;
       height: 40px;
-      background: linear-gradient(135deg, $gold-frame, darken($gold-frame, 10%));
-      color: $charcoal;
+      background: linear-gradient(135deg, $accent-primary, darken($accent-primary, 10%));
+      color: $bg-primary;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -201,7 +207,7 @@
     @include body-text('small');
     font-size: 11px;
     padding: 2px $space-sm;
-    background: $gallery-gray;
+    background: $bg-tertiary;
     border-radius: 12px;
     color: $text-secondary;
   }
@@ -215,7 +221,7 @@
       right: -30px;
       top: 50%;
       transform: translateY(-50%);
-      color: $gold-frame;
+      color: $accent-primary;
 
       svg {
         width: 24px;
@@ -241,14 +247,14 @@
 }
 
 .feature-card {
-  @include museum-card;
+  @include bento-card;
   text-align: center;
 
   .feature-icon {
     width: 48px;
     height: 48px;
     margin: 0 auto $space-md;
-    background: linear-gradient(135deg, rgba($gold-frame, 0.1), rgba($gold-frame, 0.2));
+    background: linear-gradient(135deg, rgba($accent-primary, 0.1), rgba($accent-primary, 0.2));
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -257,7 +263,7 @@
     svg {
       width: 24px;
       height: 24px;
-      color: $gold-frame;
+      color: $accent-primary;
     }
   }
 
@@ -275,7 +281,7 @@
 
 // SDLC Timeline
 .sdlc-section {
-  background: linear-gradient(180deg, $gallery-gray 0%, rgba($deep-navy, 0.05) 100%);
+  background: linear-gradient(180deg, $bg-tertiary 0%, rgba($accent-secondary, 0.05) 100%);
 }
 
 .sdlc-timeline {
@@ -301,36 +307,36 @@
     .marker-number {
       width: 44px;
       height: 44px;
-      background: linear-gradient(135deg, $deep-navy, lighten($deep-navy, 10%));
-      color: $museum-white;
+      background: linear-gradient(135deg, $accent-secondary, lighten($accent-secondary, 10%));
+      color: $bg-secondary;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
       @include body-text();
-      box-shadow: 0 4px 12px rgba($deep-navy, 0.3);
+      box-shadow: 0 4px 12px rgba($accent-secondary, 0.3);
     }
 
     .marker-line {
       width: 3px;
       flex: 1;
-      background: linear-gradient(180deg, $deep-navy, rgba($deep-navy, 0.3));
+      background: linear-gradient(180deg, $accent-secondary, rgba($accent-secondary, 0.3));
       margin-top: $space-sm;
       min-height: 60px;
     }
   }
 
   .phase-content {
-    @include museum-card;
+    @include bento-card;
     flex: 1;
-    border-left: 3px solid $deep-navy;
+    border-left: 3px solid $accent-secondary;
 
     h3 {
       @include h3;
       font-size: $text-body-lg;
       margin-bottom: $space-xs;
-      color: $deep-navy;
+      color: $accent-secondary;
     }
 
     .phase-description {
@@ -351,7 +357,7 @@
         position: relative;
 
         &::marker {
-          color: $gold-frame;
+          color: $accent-primary;
         }
 
         &:last-child {
@@ -365,7 +371,7 @@
       color: $text-secondary;
       margin: 0;
       padding-top: $space-md;
-      border-top: 2px solid $gallery-gray;
+      border-top: 2px solid $bg-tertiary;
       background: rgba($success, 0.05);
       margin: 0 (-$space-lg) (-$space-lg);
       padding: $space-md $space-lg;
@@ -392,7 +398,7 @@
       font-size: $text-body-lg;
       margin-bottom: $space-md;
       padding-bottom: $space-sm;
-      border-bottom: 2px solid $gold-frame;
+      border-bottom: 2px solid $accent-primary;
       display: inline-block;
     }
 
@@ -403,14 +409,14 @@
     }
 
     .tech-item {
-      @include museum-card;
+      @include bento-card;
       padding: $space-md;
 
       h4 {
         @include body-text();
         font-weight: 700;
         margin-bottom: $space-xs;
-        color: $charcoal;
+        color: $text-primary;
       }
 
       p {
@@ -434,14 +440,14 @@
 }
 
 .infrastructure-card {
-  @include museum-card;
+  @include bento-card;
   display: flex;
   flex-direction: column;
 
   .infra-icon {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, rgba($deep-navy, 0.1), rgba($deep-navy, 0.2));
+    background: linear-gradient(135deg, rgba($accent-secondary, 0.1), rgba($accent-secondary, 0.2));
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -451,7 +457,7 @@
     svg {
       width: 24px;
       height: 24px;
-      color: $deep-navy;
+      color: $accent-secondary;
     }
   }
 
@@ -480,14 +486,14 @@
 }
 
 .decision-card {
-  @include museum-card;
+  @include bento-card;
 
   h3 {
     @include body-text();
     font-weight: 700;
     margin-bottom: $space-md;
     padding-bottom: $space-sm;
-    border-bottom: 2px solid $gallery-gray;
+    border-bottom: 2px solid $bg-tertiary;
   }
 
   p {
@@ -508,7 +514,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: $space-lg;
-  @include museum-card;
+  @include bento-card;
 
   @include tablet {
     grid-template-columns: 1fr;
@@ -550,7 +556,7 @@
 
     @include tablet {
       padding-top: $space-md;
-      border-top: 1px solid $gallery-gray;
+      border-top: 1px solid $bg-tertiary;
     }
   }
 }
@@ -571,7 +577,7 @@
 }
 
 .impact-card {
-  @include museum-card;
+  @include bento-card;
   text-align: center;
 
   .impact-icon {
@@ -594,7 +600,7 @@
   h3 {
     @include body-text();
     font-weight: 700;
-    color: $charcoal;
+    color: $text-primary;
     margin-bottom: $space-sm;
   }
 
@@ -607,8 +613,8 @@
 
 // Access & Contact Section
 .access-section {
-  background: $museum-white;
-  border: 2px solid $gallery-gray;
+  background: $bg-secondary;
+  border: 2px solid $bg-tertiary;
 }
 
 .access-container {
@@ -622,14 +628,14 @@
 }
 
 .access-card {
-  @include museum-card;
+  @include bento-card;
   text-align: center;
 
   .access-icon {
     width: 56px;
     height: 56px;
     margin: 0 auto $space-lg;
-    background: $gallery-gray;
+    background: $bg-tertiary;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -638,7 +644,7 @@
     svg {
       width: 28px;
       height: 28px;
-      color: $charcoal;
+      color: $text-primary;
     }
   }
 
@@ -654,13 +660,13 @@
     margin: 0;
 
     a {
-      color: $deep-navy;
+      color: $accent-secondary;
       text-decoration: none;
       font-weight: 600;
       transition: color 0.2s ease;
 
       &:hover {
-        color: $gold-frame;
+        color: $accent-primary;
         text-decoration: underline;
       }
     }
@@ -668,10 +674,10 @@
 
   &.contact-card {
     .access-icon {
-      background: linear-gradient(135deg, rgba($gold-frame, 0.15), rgba($gold-frame, 0.25));
+      background: linear-gradient(135deg, rgba($accent-primary, 0.15), rgba($accent-primary, 0.25));
 
       svg {
-        color: $gold-frame;
+        color: $accent-primary;
       }
     }
   }

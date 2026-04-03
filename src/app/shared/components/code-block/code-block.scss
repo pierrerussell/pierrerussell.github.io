@@ -2,31 +2,30 @@
 @use '../../styles/mixins' as *;
 
 .frame-decoration {
-  background: $museum-white;
-  border: 2px solid $gallery-gray;
+  @include bento-card;
   padding: $space-sm;
-  box-shadow: $shadow-lg;
 }
 
 .frame-content {
-  background: $charcoal;
+  background: $bg-tertiary;
   padding: $space-lg;
   position: relative;
   overflow: hidden;
+  border-radius: $radius-sm;
 }
 
 .code-preview {
   font-family: 'Courier New', monospace;
   font-size: $text-body-sm;
   line-height: 1.8;
-  color: $gallery-gray;
+  color: $text-secondary;
 }
 
 .code-line {
   display: block;
   opacity: 0;
   animation: typeIn 0.3s ease-out forwards;
-  
+
   @for $i from 1 through 5 {
     &:nth-child(#{$i}) {
       animation-delay: #{0.5 + $i * 0.1}s;
@@ -48,7 +47,7 @@
 
 .cursor {
   display: inline-block;
-  color: $gallery-gray;
+  color: $text-muted;
   animation: blink 1s step-end infinite;
   font-weight: normal;
 }

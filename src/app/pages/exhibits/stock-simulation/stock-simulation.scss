@@ -6,9 +6,10 @@
 
 .exhibit-container {
   @include container;
+  max-width: 1200px;
   padding-top: $space-3xl;
   padding-bottom: $space-3xl;
-  background: $museum-white;
+  background: $bg-primary;
 }
 
 .exhibit-header {
@@ -64,7 +65,7 @@
     color: $text-primary;
   }
 }
-  background: $gallery-gray;
+  background: $bg-tertiary;
   border-radius: $radius-md;
   
   h2 {
@@ -84,7 +85,7 @@
   }
   
   .demo-panel {
-    @include museum-card;
+    @include bento-card;
     flex: 1;
     min-width: 280px;
     
@@ -93,7 +94,7 @@
       font-size: $text-body-lg;
       margin-bottom: $space-lg;
       padding-bottom: $space-md;
-      border-bottom: 2px solid $gallery-gray;
+      border-bottom: 2px solid $bg-tertiary;
     }
   }
 }
@@ -104,13 +105,13 @@
     width: 100%;
     padding: $space-sm $space-md;
     margin-bottom: $space-md;
-    border: 2px solid $gallery-gray;
+    border: 2px solid $bg-tertiary;
     border-radius: $radius-sm;
-    background: $museum-white;
+    background: $bg-secondary;
     
     &:focus {
       outline: none;
-      border-color: $gold-frame;
+      border-color: $accent-primary;
     }
   }
   
@@ -121,8 +122,8 @@
     
     .stock-chip {
       @include body-text('small');
-      background: $charcoal;
-      color: $museum-white;
+      background: $bg-primary;
+      color: $bg-secondary;
       padding: $space-xs $space-md;
       border-radius: 20px;
       font-weight: 500;
@@ -132,8 +133,8 @@
 
 .chart-placeholder {
   height: 240px;
-  background: $gallery-gray;
-  border: 3px dashed darken($gallery-gray, 10%);
+  background: $bg-tertiary;
+  border: 3px dashed darken($bg-tertiary, 10%);
   border-radius: $radius-sm;
   @include flex-center;
   flex-direction: column;
@@ -154,7 +155,7 @@
   .weight-item {
     @include body-text();
     padding: $space-md 0;
-    border-bottom: 1px solid $gallery-gray;
+    border-bottom: 1px solid $bg-tertiary;
     display: flex;
     justify-content: space-between;
     
@@ -175,14 +176,14 @@
 }
 
 .risk-panel {
-  @include museum-card;
+  @include bento-card;
   
   h3 {
     @include h3;
     font-size: $text-body-lg;
     margin-bottom: $space-lg;
     padding-bottom: $space-md;
-    border-bottom: 2px solid $gallery-gray;
+    border-bottom: 2px solid $bg-tertiary;
   }
   
   .var-controls {
@@ -207,23 +208,23 @@
     select {
       @include body-text();
       padding: $space-xs $space-md;
-      border: 2px solid $gallery-gray;
+      border: 2px solid $bg-tertiary;
       border-radius: $radius-sm;
-      background: $museum-white;
+      background: $bg-secondary;
       cursor: pointer;
       
       &:focus {
         outline: none;
-        border-color: $gold-frame;
+        border-color: $accent-primary;
       }
     }
   }
   
   .var-result {
-    background: rgba($gold-frame, 0.1);
+    background: rgba($accent-primary, 0.1);
     padding: $space-lg;
     border-radius: $radius-sm;
-    border: 2px solid rgba($gold-frame, 0.3);
+    border: 2px solid rgba($accent-primary, 0.3);
     
     p {
       @include body-text();
@@ -232,7 +233,7 @@
       &:first-child {
         font-size: $text-body-lg;
         font-weight: 700;
-        color: $charcoal;
+        color: $bg-primary;
         margin-bottom: $space-md;
       }
       
@@ -245,14 +246,14 @@
 }
 
 .backtest-panel {
-  @include museum-card;
+  @include bento-card;
   
   h3 {
     @include h3;
     font-size: $text-body-lg;
     margin-bottom: $space-lg;
     padding-bottom: $space-md;
-    border-bottom: 2px solid $gallery-gray;
+    border-bottom: 2px solid $bg-tertiary;
   }
   
   .strategy-select {
@@ -260,14 +261,14 @@
     width: 100%;
     padding: $space-sm $space-md;
     margin-bottom: $space-xl;
-    border: 2px solid $gallery-gray;
+    border: 2px solid $bg-tertiary;
     border-radius: $radius-sm;
-    background: $museum-white;
+    background: $bg-secondary;
     cursor: pointer;
     
     &:focus {
       outline: none;
-      border-color: $gold-frame;
+      border-color: $accent-primary;
     }
   }
   
@@ -283,11 +284,11 @@
 }
 
 .metric-card {
-  background: $gallery-gray;
+  background: $bg-tertiary;
   padding: $space-lg;
   border-radius: $radius-sm;
   text-align: center;
-  border: 1px solid darken($gallery-gray, 5%);
+  border: 1px solid darken($bg-tertiary, 5%);
   
   .metric-label {
     @include body-text('small');
@@ -312,7 +313,7 @@
 .technical-section {
   margin-top: $space-3xl;
   padding-top: $space-3xl;
-  border-top: 1px solid $gallery-gray;
+  border-top: 1px solid $bg-tertiary;
   
   h2 {
     @include h2;
@@ -324,7 +325,7 @@
     display: flex;
     gap: $space-xs;
     margin-bottom: $space-xl;
-    border-bottom: 2px solid $gallery-gray;
+    border-bottom: 2px solid $bg-tertiary;
     justify-content: center;
     flex-wrap: wrap;
     
@@ -339,19 +340,19 @@
       transition: all 0.2s ease;
       
       &:hover {
-        color: $charcoal;
+        color: $bg-primary;
       }
       
       &.active {
-        color: $charcoal;
+        color: $bg-primary;
         font-weight: 600;
-        border-bottom-color: $gold-frame;
+        border-bottom-color: $accent-primary;
       }
     }
   }
   
   .tab-content {
-    @include museum-card;
+    @include bento-card;
     max-width: 800px;
     margin: 0 auto;
     
@@ -382,7 +383,7 @@
 .behind-scenes {
   margin-top: $space-3xl;
   padding: $space-xl;
-  background: $gallery-gray;
+  background: $bg-tertiary;
   border-radius: $radius-md;
   
   h2 {

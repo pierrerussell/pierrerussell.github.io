@@ -1,39 +1,90 @@
 @use '../../shared/styles/variables' as *;
 @use '../../shared/styles/mixins' as *;
 
-.exhibits-hero {
-  padding: $space-3xl 0;
-  background: linear-gradient(135deg, $museum-white 0%, $gallery-gray 100%);
-  
-  .hero-description {
-    @include body-text('large');
-    color: $text-secondary;
-    margin-top: $space-md;
-  }
+.projects-page {
+  min-height: calc(100dvh - $navbar-height);
+  background: $bg-primary;
+  padding: $space-2xl 0;
 }
 
-.exhibits-gallery {
-  padding: $space-3xl 0;
-  background: $gallery-gray;
-  min-height: 60vh;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $space-lg;
 }
 
-.gallery-controls {
-  margin-bottom: $space-3xl;
+.page-header {
+  text-align: center;
+  margin-bottom: $space-2xl;
+  animation: fadeInUp 0.5s ease-out;
 }
 
-.filter-buttons {
+.page-label {
+  font-size: $text-caption;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: $accent-primary;
+  font-weight: 600;
+  margin-bottom: $space-sm;
+  display: inline-block;
+  background: $accent-soft;
+  padding: $space-xs $space-sm;
+  border-radius: $radius-sm;
+}
+
+.page-header h1 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: $space-sm;
+}
+
+.page-description {
+  font-size: $text-body-lg;
+  color: $text-secondary;
+}
+
+.filter-bar {
   display: flex;
-  gap: $space-md;
+  gap: $space-sm;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: $space-2xl;
+  animation: fadeInUp 0.5s ease-out 0.1s backwards;
 }
 
 .filter-btn {
-  @include button-secondary;
-  
+  background: $bg-secondary;
+  border: 1px solid $border-color;
+  color: $text-secondary;
+  padding: $space-sm $space-lg;
+  border-radius: $radius-md;
+  font-size: $text-body-sm;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+
+  &:hover {
+    background: $accent-soft;
+    border-color: $accent-primary;
+    color: $accent-secondary;
+  }
+
   &.active {
-    @include button-primary;
+    background: $accent-primary;
+    border-color: $accent-primary;
+    color: white;
+    box-shadow: 0 2px 8px rgba($accent-primary, 0.3);
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
