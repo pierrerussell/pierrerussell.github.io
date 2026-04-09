@@ -201,6 +201,23 @@
     color: $error;
     font-size: $text-body-sm;
   }
+
+  .info-notice {
+    margin-top: $space-md;
+    padding: $space-xs $space-sm;
+    font-size: 0.75rem;
+    color: $text-secondary;
+    background: $bg-tertiary;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: $space-xs;
+    white-space: nowrap;
+
+    .info-icon {
+      font-size: 0.7rem;
+    }
+  }
 }
 
 // Chart

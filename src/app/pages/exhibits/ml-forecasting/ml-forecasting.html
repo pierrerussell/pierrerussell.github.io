@@ -70,6 +70,7 @@
             [disabled]="isLoading">
             {{ isLoading ? 'Generating...' : 'Generate Predictions' }}
           </button>
+          <p class="info-notice">ℹ Cold start takes ~30s on first load!</p>
 
           <div class="error-message" *ngIf="errorMessage">
             {{ errorMessage }}
