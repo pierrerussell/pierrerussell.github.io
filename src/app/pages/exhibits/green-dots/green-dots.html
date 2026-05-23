@@ -1,0 +1,191 @@
+<div class="exhibit-container">
+  <!-- Exhibit Header -->
+  <header class="exhibit-header">
+    <div class="project-badge">Production SaaS</div>
+    <h1 class="exhibit-title">The Green Dots</h1>
+    <p class="exhibit-subtitle">
+      B2B SaaS platform for Microsoft Teams presence tracking and workplace analytics,
+      helping SMEs monitor team availability and working patterns for remote and hybrid teams.
+    </p>
+    <div class="header-note">
+      <span class="note-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="12" y1="16" x2="12" y2="12"/>
+          <line x1="12" y1="8" x2="12.01" y2="8"/>
+        </svg>
+      </span>
+      <span>Live production SaaS: <a href="https://thegreendots.io" target="_blank" rel="noopener">thegreendots.io</a></span>
+    </div>
+  </header>
+
+  <!-- Project Overview -->
+  <section class="demo-section">
+    <h2>Project Overview</h2>
+    <div class="overview-grid">
+      <div class="overview-card">
+        <h3>The Problem</h3>
+        <p>
+          Microsoft Teams displays real-time presence status (Available, Busy, Away) but deliberately
+          does NOT store historical data for privacy reasons. Organizations managing remote and hybrid
+          teams have no way to answer:
+        </p>
+        <ul>
+          <li>When were employees actually online yesterday?</li>
+          <li>What are our team's typical working hours?</li>
+          <li>Who is working excessive out-of-hours time?</li>
+          <li>Is there a pattern of availability issues?</li>
+        </ul>
+      </div>
+      <div class="overview-card">
+        <h3>The Solution</h3>
+        <p>
+          The Green Dots bridges this gap by continuously capturing presence status and providing:
+        </p>
+        <ul>
+          <li>Hour-by-hour presence timelines for assigned team members</li>
+          <li>Automated daily/weekly/monthly email reports with analytics</li>
+          <li>Real-time dashboard with availability insights</li>
+          <li>Working hours analysis and out-of-hours detection</li>
+          <li>Per-seat subscription billing with 7-day free trial</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="demo-section">
+    <h2>Core Features</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+        </div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture -->
+  <section class="demo-section">
+    <h2>Clean Architecture</h2>
+    <p class="section-intro">
+      Built with a layered architecture pattern ensuring separation of concerns, testability, and maintainability.
+    </p>
+    <div class="architecture-layers">
+      <div class="layer-card" *ngFor="let layer of architectureLayers; let i = index">
+        <div class="layer-header">
+          <span class="layer-number">{{ i + 1 }}</span>
+          <h3>{{ layer.name }}</h3>
+        </div>
+        <p class="layer-description">{{ layer.description }}</p>
+        <ul class="component-list">
+          <li *ngFor="let component of layer.components">{{ component }}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Deep Dive -->
+  <section class="demo-section">
+    <h2>Feature Implementation</h2>
+    <div class="implementation-cards">
+      <div class="impl-card" *ngFor="let feature of keyFeatures">
+        <h3>{{ feature.title }}</h3>
+        <p class="impl-description">{{ feature.description }}</p>
+        <ul class="impl-details">
+          <li *ngFor="let detail of feature.details">{{ detail }}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Highlights -->
+  <section class="demo-section">
+    <h2>Technical Challenges & Solutions</h2>
+    <div class="challenges-grid">
+      <div class="challenge-card" *ngFor="let highlight of technicalHighlights">
+        <h3>{{ highlight.title }}</h3>
+        <div class="challenge-section">
+          <strong>Challenge:</strong>
+          <p>{{ highlight.challenge }}</p>
+        </div>
+        <div class="challenge-section">
+          <strong>Solution:</strong>
+          <p>{{ highlight.solution }}</p>
+        </div>
+        <div class="challenge-section impact">
+          <strong>Impact:</strong>
+          <p>{{ highlight.impact }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="demo-section">
+    <h2>Technology Stack</h2>
+    <div class="tech-breakdown">
+      <div class="tech-layer">
+        <h3>Frontend</h3>
+        <ul>
+          <li *ngFor="let tech of frontendTech">
+            <strong>{{ tech.name }}:</strong> {{ tech.purpose }}
+          </li>
+        </ul>
+      </div>
+      <div class="tech-layer">
+        <h3>Backend</h3>
+        <ul>
+          <li *ngFor="let tech of backendTech">
+            <strong>{{ tech.name }}:</strong> {{ tech.purpose }}
+          </li>
+        </ul>
+      </div>
+      <div class="tech-layer">
+        <h3>Database</h3>
+        <ul>
+          <li *ngFor="let tech of databaseTech">
+            <strong>{{ tech.name }}:</strong> {{ tech.purpose }}
+          </li>
+        </ul>
+      </div>
+      <div class="tech-layer">
+        <h3>Infrastructure & Integrations</h3>
+        <ul>
+          <li *ngFor="let tech of infrastructureTech">
+            <strong>{{ tech.name }}:</strong> {{ tech.purpose }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testing -->
+  <section class="demo-section">
+    <h2>Testing & Quality</h2>
+    <p class="section-intro">
+      Comprehensive test coverage ensuring reliability and correctness of business logic.
+    </p>
+    <ul class="testing-list">
+      <li *ngFor="let test of testingCoverage">{{ test }}</li>
+    </ul>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="demo-section cta-section">
+    <div class="cta-card">
+      <h2>Visit The Green Dots</h2>
+      <p>
+        Experience the production SaaS platform live. Connect your Microsoft 365 tenant
+        and start tracking your team's presence with a 7-day free trial.
+      </p>
+      <a href="https://thegreendots.io" target="_blank" rel="noopener" class="cta-button">
+        Launch Application →
+      </a>
+    </div>
+  </section>
+</div>
