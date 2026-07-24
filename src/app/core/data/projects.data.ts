@@ -46,6 +46,7 @@ export class ProjectsData {
       imageUrl: 'images/exhibits/TheGreenDots.jpg',
       liveUrl: 'https://thegreendots.io',
       demoUrl: '/projects/green-dots',
+      githubUrl: 'https://github.com/pierrerussell/thegreendots',
       highlights: [
         'Clean architecture with layered separation (Domain, Application, Infrastructure)',
         'Microsoft Graph API integration polling 650 users every 15 seconds',
@@ -108,6 +109,36 @@ export class ProjectsData {
     },
     {
       id: 4,
+      title: 'BizModSwapBot',
+      description: 'A Telegram Mini App for NUS students to swap module slots efficiently with automated matching logic.',
+      detailedDescription: 'BizModSwapBot is an open-source Telegram Mini App designed to help students at the National University of Singapore (NUS) swap module slots (tutorials/labs) easily. It features a React-based frontend for a native mobile experience and a robust ASP.NET Core backend that handles automated matching of swap requests.',
+      technologies: [TechnologyName.React, TechnologyName.TypeScript, TechnologyName.ASPNet, TechnologyName.CSharp, TechnologyName.GitHub],
+      category: ProjectCategory.FullStack,
+      featured: true,
+      status: ProjectStatus.Completed,
+      imageUrl: 'images/exhibits/BizModSwapBot.jpg',
+      githubUrl: 'https://github.com/pierrerussell/BizModSwapBot',
+      demoUrl: '/projects/biz-mod-swap-bot',
+      highlights: [
+        'Integrated seamlessly as a Telegram Mini App',
+        'Automated server-side matching of swap requests',
+        'Verified Telegram authentication for secure user data',
+        'Native look and feel using @telegram-apps/telegram-ui',
+        'Efficient slot management (active/closed requests)'
+      ],
+      challenges: [
+        'Designing an efficient automated matching algorithm for multi-way swaps',
+        'Implementing secure authentication via Telegram Web App init data',
+        'Building a responsive mobile-first UI within the Telegram ecosystem'
+      ],
+      outcomes: [
+        'Streamlined module swapping process for NUS students',
+        'Open-source contribution to the student community',
+        'Successful integration of modern web tech with the Telegram platform'
+      ]
+    },
+    {
+      id: 5,
       title: 'Developer Portfolio',
       description: 'A modern bento-style portfolio website showcasing software engineering projects with elegant animations.',
       detailedDescription: 'An Angular-powered portfolio featuring a modern bento grid layout, dark theme, and smooth animations. Built to showcase projects in a clean, professional manner that helps developers stand out to recruiters.',
@@ -134,7 +165,7 @@ export class ProjectsData {
       ]
     },
     {
-      id: 5,
+      id: 6,
       title: 'Limit Order Book Engine',
       description: 'High-performance limit order book implementation in Rust for simulating exchange-level order matching.',
       detailedDescription: 'A systems-level implementation of a limit order book (LOB) in Rust, designed for low-latency order matching and market simulation. Features efficient data structures for price-time priority matching, real-time order book depth tracking, and support for various order types.',
@@ -151,7 +182,7 @@ export class ProjectsData {
       ]
     },
     {
-      id: 6,
+      id: 7,
       title: 'Market Strategy Simulator',
       description: 'Advanced financial analysis platform with historical data visualization and quantitative strategy simulations.',
       detailedDescription: 'A comprehensive stock market simulator that allows users to search stocks, visualize 2 years of historical price data, and run multiple quantitative trading strategies with detailed risk analysis and potential payoff calculations.',

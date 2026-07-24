@@ -1,0 +1,118 @@
+<div class="exhibit-container">
+  <!-- Exhibit Header -->
+  <header class="exhibit-header">
+    <div class="project-badge">Open Source</div>
+    <h1 class="exhibit-title">BizModSwapBot</h1>
+    <p class="exhibit-subtitle">
+      A Telegram Mini App for NUS students to swap module slots efficiently with automated matching logic.
+    </p>
+    <div class="header-note">
+      <span class="note-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+      </span>
+      <span>GitHub Repository: <a href="https://github.com/pierrerussell/BizModSwapBot" target="_blank" rel="noopener">github.com/pierrerussell/BizModSwapBot</a></span>
+    </div>
+  </header>
+
+  <!-- Project Overview -->
+  <section class="demo-section">
+    <h2>Project Overview</h2>
+    <div class="overview-grid">
+      <div class="overview-card">
+        <h3>The Problem</h3>
+        <p>
+          Students at the National University of Singapore (NUS) often face challenges in securing their preferred sectional or tutorial slots.
+          Manual swapping via chat groups is inefficient, hard to track, and prone to communication breakdowns.
+        </p>
+        <ul>
+          <li>Manual searching through endless chat messages</li>
+          <li>No automated way to find matching swaps</li>
+          <li>Difficulty managing multiple swap requests</li>
+          <li>Everyone double sending their swap requests</li>
+        </ul>
+      </div>
+      <div class="overview-card">
+        <h3>The Solution</h3>
+        <p>
+          BizModSwapBot provides a streamlined, automated platform integrated directly into Telegram.
+        </p>
+        <ul>
+          <li>Simple UI to post current and desired slots</li>
+          <li>Automated matching engine to find potential swaps</li>
+          <li>Native mobile experience as a Telegram Mini App</li>
+          <li>Secure authentication using Telegram's native system</li>
+          <li>Management dashboard for all your swap requests</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features -->
+  <section class="demo-section">
+    <h2>Core Features</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let feature of features">
+        <div class="feature-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+        </div>
+        <h3>{{ feature.title }}</h3>
+        <p>{{ feature.description }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technology Stack -->
+  <section class="demo-section">
+    <h2>Technology Stack</h2>
+    <div class="tech-breakdown">
+      <div class="tech-layer">
+        <h3>Frontend</h3>
+        <ul>
+          <li *ngFor="let tech of frontendTech">
+            <strong>{{ tech.name }}:</strong> {{ tech.purpose }}
+          </li>
+        </ul>
+      </div>
+      <div class="tech-layer">
+        <h3>Backend</h3>
+        <ul>
+          <li *ngFor="let tech of backendTech">
+            <strong>{{ tech.name }}:</strong> {{ tech.purpose }}
+          </li>
+        </ul>
+      </div>
+      <div class="tech-layer">
+        <h3>Database & Infrastructure</h3>
+        <ul>
+          <li *ngFor="let tech of databaseTech">
+            <strong>{{ tech.name }}:</strong> {{ tech.purpose }}
+          </li>
+          <li *ngFor="let tech of infrastructureTech">
+            <strong>{{ tech.name }}:</strong> {{ tech.purpose }}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="demo-section cta-section">
+    <div class="cta-card">
+      <h2>Explore the Code</h2>
+      <p>
+        BizModSwapBot is an open-source project. Check out the source code on GitHub to see how it works
+        or to contribute to its development.
+      </p>
+      <p>
+        Alternatively, visit &#64;nusbizswapbot on telegram to try it out.
+      </p>
+      <a href="https://github.com/pierrerussell/BizModSwapBot" target="_blank" rel="noopener" class="cta-button">
+        View on GitHub →
+      </a>
+    </div>
+  </section>
+</div>

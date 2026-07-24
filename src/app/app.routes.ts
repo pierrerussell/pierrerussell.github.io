@@ -7,6 +7,7 @@ import { StockSimulationComponent } from './pages/exhibits/stock-simulation/stoc
 import { MlForecastingComponent } from './pages/exhibits/ml-forecasting/ml-forecasting';
 import { LaselleComponent } from './pages/exhibits/laselle/laselle';
 import { GreenDotsComponent } from './pages/exhibits/green-dots/green-dots';
+import { BizModSwapBotComponent } from './pages/exhibits/biz-mod-swap-bot/biz-mod-swap-bot';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -16,6 +17,7 @@ export const routes: Routes = [
   { path: 'projects/ml-forecasting', component: MlForecastingComponent },
   { path: 'projects/laselle', component: LaselleComponent },
   { path: 'projects/green-dots', component: GreenDotsComponent },
+  { path: 'projects/biz-mod-swap-bot', component: BizModSwapBotComponent },
   { path: 'contact', component: ContactComponent },
   { path: '**', redirectTo: '' }
 ];

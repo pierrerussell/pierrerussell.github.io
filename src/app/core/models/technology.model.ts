@@ -64,6 +64,8 @@ export enum TechnologyName {
   SocketIO = 'Socket.io',
   JWT = 'JWT',
   Stripe = 'Stripe',
+  Vite = 'Vite',
+  EntityFramework = 'Entity Framework Core',
   Prometheus = 'Prometheus',
   GraphQL = 'GraphQL',
   REST = 'REST API'

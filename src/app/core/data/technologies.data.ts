@@ -181,6 +181,20 @@ export class TechnologiesData {
       color: '#008cdd',
       logo: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 5.09 1.104l.816-3.9s-1.95-.803-5.743-.803c-5.055 0-7.492 2.914-7.492 5.659 0 3.717 4.252 4.998 6.995 5.748 2.172.806 3.356 1.426 3.356 2.409 0 .831-.683 1.305-1.901 1.305-2.227 0-4.515-.858-5.09-1.104l-.816 3.9s1.95.803 5.743.803c5.055 0 7.492-2.914 7.492-5.659 0-3.717-4.252-4.998-6.995-5.748z"/></svg>`
     }],
+    [TechnologyName.Vite, {
+      name: TechnologyName.Vite,
+      displayName: 'Vite',
+      category: TechnologyCategory.Other,
+      color: '#646cff',
+      logo: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.098 5.544l-5.32 10.64a.862.862 0 01-1.556 0L5.902 5.544a.862.862 0 011.026-1.22l5.072 1.353 5.072-1.353a.862.862 0 011.026 1.22z"/><path d="M12 0l-5.333 1.333V4l4 1 1.333-3.333L13.333 4l4-1V1.333L12 0z"/></svg>`
+    }],
+    [TechnologyName.EntityFramework, {
+      name: TechnologyName.EntityFramework,
+      displayName: 'Entity Framework Core',
+      category: TechnologyCategory.Backend,
+      color: '#512bd4',
+      logo: `<svg viewBox="0 0 24 24" fill="currentColor"><text x="12" y="15" font-family="Arial" font-size="12" font-weight="bold" text-anchor="middle" fill="currentColor">EF</text></svg>`
+    }],
     [TechnologyName.Express, {
       name: TechnologyName.Express,
       displayName: 'Express',

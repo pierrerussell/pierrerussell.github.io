@@ -1,0 +1,283 @@
+@use '../../../shared/styles/variables' as *;
+@use '../../../shared/styles/mixins' as *;
+
+.exhibit-container {
+  @include container;
+  max-width: 1200px;
+  padding-top: $space-3xl;
+  padding-bottom: $space-3xl;
+  background: $bg-primary;
+}
+
+.exhibit-header {
+  text-align: center;
+  margin-bottom: $space-3xl;
+
+  .project-badge {
+    display: inline-block;
+    @include body-text('small');
+    font-weight: 600;
+    padding: $space-xs $space-md;
+    background: linear-gradient(135deg, $accent-secondary, lighten($accent-secondary, 10%));
+    color: $bg-secondary;
+    border-radius: 20px;
+    margin-bottom: $space-lg;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .exhibit-title {
+    @include h1;
+    margin-bottom: $space-lg;
+  }
+
+  .exhibit-subtitle {
+    @include body-text('large');
+    color: $text-secondary;
+    margin-bottom: $space-xl;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header-note {
+    display: inline-flex;
+    align-items: center;
+    gap: $space-sm;
+    @include body-text('small');
+    color: $text-secondary;
+    padding: $space-md $space-lg;
+    background: $bg-tertiary;
+    border-radius: $radius-md;
+    border-left: 3px solid $accent-primary;
+
+    .note-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+
+      svg {
+        width: 100%;
+        height: 100%;
+        color: $accent-primary;
+      }
+    }
+
+    a {
+      color: $accent-secondary;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: $accent-primary;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.demo-section {
+  margin-bottom: $space-3xl;
+  padding: $space-xl;
+  background: $bg-tertiary;
+  border-radius: $radius-md;
+
+  h2 {
+    @include h2;
+    margin-bottom: $space-xl;
+    text-align: center;
+  }
+
+  .section-intro {
+    @include body-text();
+    color: $text-secondary;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto $space-xl;
+
+    strong {
+      color: $text-primary;
+    }
+  }
+}
+
+// Overview Section
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-xl;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.overview-card {
+  @include bento-card;
+
+  h3 {
+    @include h3;
+    font-size: $text-body-lg;
+    margin-bottom: $space-md;
+    padding-bottom: $space-md;
+    border-bottom: 2px solid $bg-tertiary;
+  }
+
+  p {
+    @include body-text();
+    color: $text-secondary;
+    margin-bottom: $space-md;
+  }
+
+  ul {
+    padding-left: $space-lg;
+    margin: 0;
+
+    li {
+      @include body-text();
+      color: $text-primary;
+      margin-bottom: $space-sm;
+
+      &::marker {
+        color: $accent-primary;
+      }
+    }
+  }
+}
+
+// Features Section
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $space-lg;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feature-card {
+  @include bento-card;
+  text-align: center;
+
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto $space-md;
+    background: linear-gradient(135deg, rgba($accent-primary, 0.1), rgba($accent-primary, 0.2));
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 24px;
+      height: 24px;
+      color: $accent-primary;
+    }
+  }
+
+  h3 {
+    @include body-text();
+    font-weight: 700;
+    margin-bottom: $space-sm;
+  }
+
+  p {
+    @include body-text('small');
+    color: $text-secondary;
+  }
+}
+
+// Technology Breakdown
+.tech-breakdown {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $space-xl;
+
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-layer {
+    h3 {
+      @include h3;
+      font-size: $text-body-lg;
+      margin-bottom: $space-md;
+      padding-bottom: $space-sm;
+      border-bottom: 2px solid $accent-primary;
+      display: inline-block;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: $space-lg;
+
+      li {
+        @include body-text('small');
+        color: $text-primary;
+        margin-bottom: $space-sm;
+
+        &::marker {
+          color: $accent-primary;
+        }
+
+        strong {
+          font-weight: 700;
+          color: $text-primary;
+        }
+      }
+    }
+  }
+}
+
+// CTA Section
+.cta-section {
+  background: linear-gradient(135deg, rgba($accent-secondary, 0.1), rgba($accent-primary, 0.1));
+  border: 2px solid $accent-primary;
+}
+
+.cta-card {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+
+  h2 {
+    @include h2;
+    margin-bottom: $space-lg;
+  }
+
+  p {
+    @include body-text('large');
+    color: $text-secondary;
+    margin-bottom: $space-xl;
+  }
+
+  .cta-button {
+    @include button-primary;
+    display: inline-flex;
+    align-items: center;
+    gap: $space-sm;
+    font-size: $text-body-lg;
+    padding: $space-md $space-xl;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba($accent-primary, 0.3);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+}
